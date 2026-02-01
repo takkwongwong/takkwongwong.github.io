@@ -2,81 +2,39 @@
 title: "Tak Kwong WONG | Assistant Professor"
 name: "Tak Kwong WONG"
 description: "Assistant Professor at the Department of Mathematics, The University of Hong Kong (HKU)."
-url: "https://cc-asuna.github.io" # 請確保這是你的正確網址
-baseurl: "" # 設為空字串以對應根目錄
-repository: "cc-asuna/cc-asuna.github.io"
-teaser: "Wong.jpg" # 預設預覽圖
+url: "https://cc-asuna.github.io"
+baseurl: ""
 
-# 個人側邊欄設定
+# 主題設定 (修正報錯關鍵)
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+minimal_mistakes_skin: "default"
+
+# 個人資料設定
 author:
   name: "Tak Kwong WONG"
-  avatar: "Wong.jpg" # 請確保你的照片位於 images/Wong.jpg
+  avatar: "Wong.jpg"
   bio: "Assistant Professor, Department of Mathematics, HKU"
   location: "Hong Kong"
-  employer: "The University of Hong Kong"
-  uri: "https://hkumath.hku.hk/MathWWW/people.php?faculty.takkwong"
-  email: "takkwong@maths.hku.hk"
-  # 學術社交連結
-  googlescholar: "0EiOaHYAAAAJ"
-  orcid: "0000-0002-6454-984X"
-  # 其他連結可自訂
   links:
-    - label: "MathSciNet (MR ID)"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ"
+    - label: "ORCiD"
+      icon: "fab fa-fw fa-orcid"
+      url: "https://orcid.org/0000-0002-6454-984X"
+    - label: "MathSciNet"
       icon: "fas fa-fw fa-book"
       url: "https://mathscinet.ams.org/author?authorId=972012"
 
-# 導覽列設定 (對應 _data/navigation.yml)
-# 你可以在這裡先設定好，稍後去修改 _data/navigation.yml
-# 建議包含：About, Research, Teaching, CV
-
-# 外觀風格
-theme: jekyll-theme-minimal-mistakes
-minimal_mistakes_skin: "default" # 可選 "air", "aqua", "contrast", "dark" 等
-
-# 搜尋功能
-search: true
-
-# 讀取內容設定
 include:
   - _pages
   - _publications
   - _teaching
 
-# Markdown 處理
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
-  math_engine: mathjax # 方便你顯示數學公式
-
-# 預設頁面設定
 defaults:
-  # 論文頁面設定
   - scope:
       path: ""
       type: publications
     values:
       layout: single
       author_profile: true
-  # 教學頁面設定
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: single
-      author_profile: true
-  # 一般頁面設定
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-
-# 社交預覽資訊 (Open Graph)
-social:
-  type: Person
-  name: Tak Kwong WONG
-  links:
-    - https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ
-    - https://orcid.org/0000-0002-6454-984X
