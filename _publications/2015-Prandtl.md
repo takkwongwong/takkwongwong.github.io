@@ -4,4 +4,5 @@ collection: publications
 date: 2015-01-01
 venue: 'Comm. Pure Appl. Math.'
 paperurl: 'https://doi.org/10.1002/cpa.21595'
-citation: 'Tak Kwong Wong and Nader Masmoudi. (2015). Comm. Pure Appl. Math.'
+citation: 'Nader Masmoudi and Tak Kwong Wong. (2015). Comm. Pure Appl. Math. 68, 1683-1741.'
+---
