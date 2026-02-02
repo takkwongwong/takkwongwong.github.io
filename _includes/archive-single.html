@@ -19,12 +19,14 @@
   <a href="{{ base_path }}{{ post.url }}" rel="permalink" class="publication-title-link" style="text-decoration: none;">{{ title }}</a>
   
   {% if post.citation and post.citation != "" and post.citation != " " %}
-    <span class="publication-author-text" style="font-size: 0.8em; font-weight: normal; color: #494e52; text-decoration: none !important;">&nbsp;({{ post.citation }})</span>
+    <div class="publication-author-text" style="font-size: 0.75em; font-weight: normal; color: #494e52; margin-top: 0.2em; line-height: 1.2;">
+      ({{ post.citation }})
+    </div>
   {% endif %}
 </h2>
 
 <style>
-  /* 確保懸停底線只出現在標題連結上 */
+  /* 僅對標題連結設定懸停底線，不影響下方的作者行 */
   .publication-title-link:hover {
     text-decoration: underline !important;
   }
