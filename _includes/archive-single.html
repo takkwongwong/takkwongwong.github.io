@@ -18,16 +18,19 @@
     <h2 class="archive__item-title" itemprop="headline" style="margin-bottom: 0.3em;">
       <a href="{{ base_path }}{{ post.url }}" rel="permalink" style="text-decoration: none;">{{ title }}</a>
       {% if post.citation %}
-        <span style="font-size: 0.8em; font-weight: normal; color: #494e52; text-decoration: none !important;">&nbsp;({{ post.citation }})</span>
+        <span style="font-size: 0.8em; font-weight: normal; color: #494e52; text-decoration: none !important; display: inline-block;">&nbsp;({{ post.citation }})</span>
       {% endif %}
     </h2>
 
     <style>
-      .archive__item-title a:hover { text-decoration: underline !important; }
+      /* 控制懸停底線效果 */
+      .archive__item-title a:hover {
+        text-decoration: underline !important;
+      }
     </style>
 
     {% if post.venue %}
-      <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.4;">
+      <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.5; font-size: 1.0em;">
         <i style="color: #333;">{{ post.venue }}</i>{% if post.volume and post.volume != "" %}, <b>{{ post.volume }}</b>{% endif %}{% if post.year and post.year != "" %} ({{ post.year }}){% endif %}{% if post.number and post.number != "" %}, {{ post.number }}{% endif %}{% if post.pages and post.pages != "" %}, {{ post.pages }}{% endif %}.
       </p>
     {% endif %}
