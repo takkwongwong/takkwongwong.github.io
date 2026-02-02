@@ -1,11 +1,9 @@
 {% include base_path %}
 
 <meta charset="utf-8">
-
 {% include seo.html %}
 
 <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
@@ -18,13 +16,12 @@
   MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [['$','$'], ['\\(','\\)']],
-      processEscapes: true
+      processEscapes: true,
+      processClass: "tex2jax_process"
     },
-    "HTML-CSS": { 
-      linebreaks: { automatic: true },
-      scale: 90 // 略微縮小公式以對齊標題文字
-    },
-    SVG: { linebreaks: { automatic: true } }
+    showProcessingMessages: false,
+    messageStyle: "none",
+    processSectionDelay: 0
   });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
