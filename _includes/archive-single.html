@@ -15,19 +15,20 @@
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
-    <h2 class="archive__item-title" itemprop="headline" style="margin-bottom: 0.3em;">
-      <a href="{{ base_path }}{{ post.url }}" rel="permalink" style="text-decoration: none;">{{ title }}</a>
-      {% if post.citation %}
-        <span style="font-size: 0.8em; font-weight: normal; color: #494e52; text-decoration: none !important; display: inline-block;">&nbsp;({{ post.citation }})</span>
-      {% endif %}
-    </h2>
+  <h2 class="archive__item-title" itemprop="headline" style="margin-bottom: 0.3em;">
+  <a href="{{ base_path }}{{ post.url }}" rel="permalink" class="publication-title-link" style="text-decoration: none;">{{ title }}</a>
+  
+  {% if post.citation and post.citation != "" and post.citation != " " %}
+    <span class="publication-author-text" style="font-size: 0.8em; font-weight: normal; color: #494e52; text-decoration: none !important;">&nbsp;({{ post.citation }})</span>
+  {% endif %}
+</h2>
 
-    <style>
-      /* 控制懸停底線效果 */
-      .archive__item-title a:hover {
-        text-decoration: underline !important;
-      }
-    </style>
+<style>
+  /* 確保懸停底線只出現在標題連結上 */
+  .publication-title-link:hover {
+    text-decoration: underline !important;
+  }
+</style>
 
     {% if post.venue %}
       <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.5; font-size: 1.0em;">
