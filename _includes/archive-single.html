@@ -27,22 +27,22 @@
       {% endif %}
     </h2>
 
-     {% if post.venue %}
-  <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.4;">
-    <i style="color: #333;">{{ post.venue }}</i>{% if post.volume %}, <b>{{ post.volume }}</b>{% endif %}{% if post.year %} ({{ post.year }}){% endif %}{% if post.number %}, {{ post.number }}{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %}.
-  </p>
-      {% endif %}
+    {% if post.venue %}
+      <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.4;">
+        <i style="color: #333;">{{ post.venue }}</i>{% if post.volume %}, <b>{{ post.volume }}</b>{% endif %}{% if post.year %} ({{ post.year }}){% endif %}{% if post.number %}, {{ post.number }}{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %}.
+      </p>
+    {% endif %}
 
     <p style="margin-top: 0; margin-bottom: 1.5em;">
-      {% if post.pub_url %}
+      {% if post.pub_url and post.pub_url != "" %}
         <a href="{{ post.pub_url }}" class="btn btn--info btn--small" target="_blank" style="padding: 4px 8px; font-size: 0.75em; border-radius: 4px;">Published Version</a>
       {% endif %}
       
-      {% if post.pre_url %}
+      {% if post.pre_url and post.pre_url != "" %}
         <a href="{{ post.pre_url }}" class="btn btn--warning btn--small" target="_blank" style="padding: 4px 8px; font-size: 0.75em; border-radius: 4px; margin-left: 5px;">Preprint Version</a>
       {% endif %}
 
-      {% if post.remarks %}
+      {% if post.remarks and post.remarks != "" %}
         <span style="margin-left: 12px; font-style: italic; color: #d33; font-size: 0.9em;">[Note: {{ post.remarks }}]</span>
       {% endif %}
     </p>
