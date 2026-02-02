@@ -1,18 +1,19 @@
-# 網站核心設定
+# 1. 網站基本設定
 title: "Tak Kwong WONG | Assistant Professor"
 name: "Tak Kwong WONG"
-description: "Assistant Professor at the Department of Mathematics, Shenzhen University."
+description: "Assistant Professor at the Department of Mathematics, ShenZhen University."
 url: "https://takkwongwong.github.io"
-baseurl: ""
+baseurl: "" # 確保此處為空
+repository: "takkwongwong/takkwongwong.github.io"
 
-# 主題設定 (修正報錯關鍵)
+# 2. 主題設定 (修正找不到主題的錯誤)
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "default" # 可選: "air", "aqua", "contrast", "dark"
 
-# 個人資料設定
+# 3. 個人資料 (側邊欄)
 author:
   name: "Tak Kwong WONG"
-  avatar: "Wong.jpg"
+  avatar: "Wong.jpg" # 請確認 images/Wong.jpg 已上傳
   bio: "Assistant Professor, Department of Mathematics, SZU"
   location: ""
   links:
@@ -26,15 +27,46 @@ author:
       icon: "fas fa-fw fa-book"
       url: "https://mathscinet.ams.org/author?authorId=972012"
 
+# 4. 定義 Collections (讓論文列表顯示的關鍵)
+collections:
+  publications:
+    output: true
+    permalink: /publications/:path/
+  teaching:
+    output: true
+    permalink: /teaching/:path/
+
+# 5. 檔案讀取設定
 include:
   - _pages
   - _publications
   - _teaching
 
+# 6. 預設頁面佈局設定
 defaults:
+  # 論文 (Publications)
   - scope:
       path: ""
       type: publications
     values:
       layout: single
       author_profile: true
+      share: true
+  # 教學 (Teaching)
+  - scope:
+      path: ""
+      type: teaching
+    values:
+      layout: single
+      author_profile: true
+  # 一般頁面 (Pages)
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# 7. 數學公式支援 (PDE 研究必備)
+markdown: kramdown
+mathjax: true
