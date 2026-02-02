@@ -1,11 +1,5 @@
 {% include base_path %}
 
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
-{% else %}
-  {% assign teaser = site.teaser %}
-{% endif %}
-
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
@@ -22,30 +16,38 @@
     {% endif %}
 
     <style>
-      /* 1. 標題連結：徹底移除所有類型的底線 */
-      .pub-title-link {
-        color: #337ab7;
+      /* 1. THE NUCLEAR OPTION: Forcefully strip every possible underline type */
+      /* We target the link and any child elements the theme might be styling */
+      .archive__item-title a,
+      .archive__item-title a:visited,
+      .pub-title-link,
+      .pub-title-link * {
         text-decoration: none !important;
-        border: none !important;
+        border-bottom: none !important;
         box-shadow: none !important;
-        /* 確保完全沒有任何裝飾屬性殘留 */
-        -webkit-text-decoration: none !important;
+        outline: none !important;
+        /* Some themes use background-image for underlines */
+        background-image: none !important; 
+        color: #337ab7;
         transition: color 0.2s ease-in-out;
       }
 
-      /* 2. 懸停時：僅切換顏色 */
-      .pub-title-link:hover {
+      /* 2. HOVER STATE: Only change the color, NO lines */
+      .archive__item-title a:hover,
+      .pub-title-link:hover,
+      .pub-title-link:hover * {
         color: #23527c !important;
         text-decoration: none !important;
         border: none !important;
         box-shadow: none !important;
+        background: none !important;
       }
 
-      /* 3. 清理 MathJax 內部樣式，確保不受主題預設 CSS 干擾 */
+      /* 3. MATHJAX CLEANUP: Ensure formulas don't trigger the theme's default link style */
       .tex2jax_process .MathJax, 
-      .tex2jax_process .MathJax_CHTML, 
       .tex2jax_process .mjx-chtml,
-      .tex2jax_process .mjx-math {
+      .tex2jax_process .mjx-math,
+      .tex2jax_process .mjx-math * {
         display: inline !important;
         text-decoration: none !important;
         border: none !important;
@@ -53,7 +55,6 @@
         vertical-align: baseline !important;
       }
 
-      /* 作者行：維持 0.9em 分行顯示 */
       .pub-author-row {
         font-size: 0.9em;
         font-weight: normal;
