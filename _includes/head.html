@@ -14,24 +14,17 @@
 
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      macros: {
-        // 如果您有常用的自定義命令可以在此添加
-      }
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
     },
-    options: {
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'tex2jax_process'
+    "HTML-CSS": { 
+      linebreaks: { automatic: true },
+      scale: 90 // 略微縮小公式以對齊標題文字
     },
-    chtml: {
-      scale: 0.95 // 稍微縮小公式比例以更完美地契合文字行高
-    }
-  };
+    SVG: { linebreaks: { automatic: true } }
+  });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML" async></script>
