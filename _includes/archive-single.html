@@ -6,17 +6,13 @@
   {% assign teaser = site.teaser %}
 {% endif %}
 
-{% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
-{% else %}
-  {% assign title = post.title %}
-{% endif %}
+{% assign title = post.title %}
 
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline" style="margin-bottom: 0;">
-      <a href="{{ base_path }}{{ post.url }}" rel="permalink" class="pub-title-link">{{ title }}</a>
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink" class="pub-title-link tex2jax_process" style="text-decoration: none !important;">{{ title }}</a>
     </h2>
 
     {% if post.citation and post.citation != "" and post.citation != " " %}
@@ -30,19 +26,15 @@
         text-decoration: none !important;
         border-bottom: none !important;
         box-shadow: none !important;
-        display: inline; /* 確保數學符號不會換行 */
+        display: inline;
       }
       .pub-title-link:hover {
-        border-bottom: 2px solid #225e8c !important; 
-    text-decoration: none !important;
+        /* 使用 border 代替 underline，防止 MathJax 符號處斷開 */
+        border-bottom: 2px solid #225e8c !important;
+        text-decoration: none !important;
       }
-
-      /* 針對 MathJax 符號的微調 */
-  .MathJax {
-    outline: none;
-    
       .pub-author-row {
-        font-size: 0.9em; /* 已從 0.75em 加大 */
+        font-size: 0.9em;
         font-weight: normal;
         color: #494e52;
         margin-top: 0.15em;
@@ -50,6 +42,11 @@
         line-height: 1.3;
         text-decoration: none !important;
         border: none !important;
+      }
+      /* 強制 MathJax 容器繼承邊框效果 */
+      .MathJax, .MathJax_CHTML, .mjx-chtml {
+        border-bottom: inherit !important;
+        display: inline-block !important;
       }
     </style>
 
