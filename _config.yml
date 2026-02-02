@@ -31,10 +31,10 @@ author:
 collections:
   publications:
     output: true
-    permalink: /publications/:path/
+    permalink: /publications/:title/
   teaching:
     output: true
-    permalink: /teaching/:path/
+    permalink: /teaching/:title/
 
 # 5. 檔案讀取設定
 include:
