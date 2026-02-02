@@ -13,5 +13,4 @@ pub_url: "https://doi.org/10.1007/s00205-024-02062-z"
 pre_url: "https://arxiv.org/abs/2301.10402"
 ---
 
-這裡是論文的摘要 (Abstract) 或者其他您想補充的文字。
-如果您不想要任何文字，這裡請保持空白。
+Abstract
