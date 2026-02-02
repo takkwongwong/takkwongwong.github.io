@@ -11,31 +11,25 @@ remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 minimal_mistakes_skin: "default"
 
 # 3. 個人資料 (側邊欄)
+# 3. 個人資料 (側邊欄)
 author:
   name: "Tak Kwong WONG"
   avatar: "Wong.jpg"
   bio: "Associate Professor, School of Mathematical Sciences, Shenzhen University"
-  location: ""
   
-
-  # 呢度係關鍵：將你原本嘅 links 搬入去對應嘅內建欄位
+  # 內建支持：填入連結或 ID
   googlescholar: "https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ"
-  orcid: "0000-0002-6454-984X" # 填 ID 就得，主題會自動加 URL
-  
-  
+  orcid: "0000-0002-6454-984X"
+
+  # 自定義連結：處理 MR Author ID 同埋防 Spam Email
   links:
-    - label: "Google Scholar"
-      icon: "fas fa-fw fa-graduation-cap"
-      url: "https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ"
-    - label: "ORCiD"
-      icon: "fab fa-fw fa-orcid"
-      url: "https://orcid.org/0000-0002-6454-984X"
     - label: "MR Author ID: 972012"
       icon: "fas fa-fw fa-book"
       url: "https://mathscinet.ams.org/author?authorId=972012"
+      
     - label: "Email: takkwongwong [at] szu.edu.cn"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:takkwongwong@szu.edu.cn" # 雖然仲係 mailto，但 label 已經保護咗視覺
+      # 注意：呢度唔加 url，咁樣就唔會產生 mailto: 連結
 
 # 4. 定義 Collections
 collections:
