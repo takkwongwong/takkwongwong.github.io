@@ -22,33 +22,39 @@
     {% endif %}
 
     <style>
-      /* 1. 標題連結：使用傳統底線，但設定為可見 */
+      /* 標題連結：徹底移除所有底線屬性，改用 shadow 繪製直線 */
       .pub-title-link {
-        text-decoration: underline !important;
-        text-decoration-color: #337ab7 !important;
-        text-underline-offset: 3px;
+        text-decoration: none !important;
         border: none !important;
-        box-shadow: none !important;
+        display: inline;
         color: #337ab7;
+        /* 在文字下方 1px 處畫一條橫跨全標題的 1px 直線 */
+        box-shadow: 0 1px 0 0 #337ab7; 
+        transition: all 0.2s ease-in-out;
       }
 
       .pub-title-link:hover {
         color: #23527c !important;
-        text-decoration-color: #23527c !important;
+        box-shadow: 0 2px 0 0 #23527c; /* 懸停時底線變粗並加深 */
+        text-decoration: none !important;
       }
 
-      /* 2. 關鍵修正：強制 MathJax 內部的字符也顯示底線，解決斷裂問題 */
+      /* 核心修正：強制 MathJax 容器及其內容不產生任何裝飾，並對齊基準線 */
+      .tex2jax_process .MathJax, 
       .tex2jax_process .MathJax_CHTML, 
       .tex2jax_process .mjx-chtml,
       .tex2jax_process .mjx-math {
-        text-decoration: underline !important;
-        text-decoration-color: inherit !important;
-        display: inline !important; /* 強制回歸行內流，不切斷底線 */
+        display: inline !important;
+        text-decoration: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        vertical-align: baseline !important;
       }
 
-      /* 確保上標 s 不會把底線帶到半空中 */
-      .mjx-sup {
-        text-decoration: none !important;
+      /* 防止 MathJax 的內邊距干擾底線位置 */
+      .mjx-chtml {
+        padding: 0 !important;
+        margin: 0 !important;
       }
 
       .pub-author-row {
