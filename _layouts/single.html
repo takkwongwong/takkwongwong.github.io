@@ -12,9 +12,36 @@ layout: default
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <div class="page__inner-wrap">
       <header>
-        <h1 class="page__title" itemprop="headline" style="margin-bottom: 0;">
+        <h1 class="page__title tex2jax_process" itemprop="headline" style="margin-bottom: 0;">
           {{ page.title }}
         </h1>
+
+        <style>
+          /* 暴力清除所有可能出現在標題的底線 */
+          .page__title, 
+          .page__title * {
+            text-decoration: none !important;
+            -webkit-text-decoration: none !important;
+            -webkit-text-decoration-color: transparent !important;
+            text-decoration-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: none !important;
+            color: #333; /* 你可以根據喜好調整標題顏色 */
+          }
+
+          /* 確保內頁 MathJax 公式唔會俾主題 CSS 干擾 */
+          .page__title .MathJax, 
+          .page__title .mjx-chtml,
+          .page__title .mjx-math {
+            display: inline !important;
+            text-decoration: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+            vertical-align: baseline !important;
+          }
+        </style>
 
         {% if page.citation and page.citation != "" and page.citation != " " %}
           <div class="pub-author-row" style="font-size: 0.9em; color: #494e52; margin-top: 0.15em; margin-bottom: 0.8em; font-weight: normal; line-height: 1.3;">
