@@ -17,7 +17,7 @@ layout: default
         </h1>
 
         <style>
-          /* 暴力清除所有可能出現在標題的底線 */
+          /* 標題與 MathJax 徹底透明化底線設定 */
           .page__title, 
           .page__title * {
             text-decoration: none !important;
@@ -27,10 +27,8 @@ layout: default
             border: none !important;
             box-shadow: none !important;
             background: none !important;
-            color: #333; /* 你可以根據喜好調整標題顏色 */
           }
 
-          /* 確保內頁 MathJax 公式唔會俾主題 CSS 干擾 */
           .page__title .MathJax, 
           .page__title .mjx-chtml,
           .page__title .mjx-math {
