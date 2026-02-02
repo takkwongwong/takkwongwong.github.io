@@ -30,10 +30,17 @@
         text-decoration: none !important;
         border-bottom: none !important;
         box-shadow: none !important;
+        display: inline; /* 確保數學符號不會換行 */
       }
       .pub-title-link:hover {
-        text-decoration: underline !important;
+        border-bottom: 2px solid #225e8c !important; 
+    text-decoration: none !important;
       }
+
+      /* 針對 MathJax 符號的微調 */
+  .MathJax {
+    outline: none;
+    
       .pub-author-row {
         font-size: 0.9em; /* 已從 0.75em 加大 */
         font-weight: normal;
