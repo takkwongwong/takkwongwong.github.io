@@ -1,7 +1,7 @@
 # 1. 網站基本設定
-title: "Tak Kwong WONG | Assistant Professor"
+title: "Tak Kwong WONG | Associate Professor"
 name: "Tak Kwong WONG"
-description: "Assistant Professor at the Department of Mathematics, ShenZhen University."
+description: "Associate Professor at the Department of Mathematics, ShenZhen University."
 url: "https://takkwongwong.github.io"
 baseurl: "" # 確保此處為空
 repository: "takkwongwong/takkwongwong.github.io"
@@ -14,7 +14,7 @@ minimal_mistakes_skin: "default" # 可選: "air", "aqua", "contrast", "dark"
 author:
   name: "Tak Kwong WONG"
   avatar: "Wong.jpg" # 請確認 images/Wong.jpg 已上傳
-  bio: "Assistant Professor, Department of Mathematics, SZU"
+  bio: "Associate Professor, Department of Mathematics, SZU"
   location: ""
   links:
     - label: "Google Scholar"
