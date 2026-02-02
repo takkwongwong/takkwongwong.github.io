@@ -22,37 +22,34 @@
     {% endif %}
 
     <style>
-      /* 1. 標題連結：使用背景漸層模擬多行底線 */
+      /* 1. 標題連結：強制關閉系統底線，改用 box-shadow 模擬 */
       .pub-title-link {
+        color: #337ab7;
+        display: inline; /* 確保支援多行換行 */
         text-decoration: none !important;
         border: none !important;
-        color: #337ab7;
-        display: inline; /* 必須是 inline 才能讓背景隨文字換行 */
-        
-        /* 基礎背景：透明 */
-        background-image: linear-gradient(#23527c, #23527c);
-        background-position: 0 100%;
-        background-repeat: no-repeat;
-        background-size: 0 1.5px; /* 平時寬度為 0 */
-        transition: background-size 0.2s ease-in-out, color 0.2s ease-in-out;
-        
-        /* 微調底線位置，避免切到數學符號底部 */
-        padding-bottom: 2px;
+        /* 將預設底線設為透明，防止出現截圖中的「兩條線」 */
+        -webkit-text-decoration-color: transparent !important;
+        text-decoration-color: transparent !important;
+        transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
       }
 
-      /* 2. 懸停時：背景（底線）寬度變為 100% */
+      /* 2. 懸停時：使用 box-shadow 畫出唯一的一條連續底線 */
       .pub-title-link:hover {
         color: #23527c !important;
-        background-size: 100% 1.5px;
+        text-decoration: none !important;
+        /* box-shadow 會隨 inline 元素換行，且不會被 MathJax 切斷 */
+        box-shadow: 0 1.5px 0 0 #23527c; 
       }
 
-      /* 3. 強制 MathJax 容器不遮擋背景底線 */
+      /* 3. 強制修正 MathJax 容器，使其不產生任何多餘線條或偏移 */
       .tex2jax_process .MathJax, 
+      .tex2jax_process .MathJax_CHTML, 
       .tex2jax_process .mjx-chtml,
       .tex2jax_process .mjx-math {
         display: inline !important;
         text-decoration: none !important;
-        background: transparent !important; /* 確保公式背景透明，露出下方的線 */
+        box-shadow: none !important; /* 確保公式內部不產生重疊線 */
         vertical-align: baseline !important;
       }
 
