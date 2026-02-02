@@ -15,32 +15,40 @@
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
-  <h2 class="archive__item-title" itemprop="headline" style="margin-bottom: 0.3em;">
-  <a href="{{ base_path }}{{ post.url }}" rel="permalink" class="publication-title-link" style="text-decoration: none !important; border: none !important;">{{ title }}</a>
-  
-  {% if post.citation and post.citation != "" and post.citation != " " %}
-    <span class="publication-author-text" style="display: block; font-size: 0.75em; font-weight: normal; color: #494e52; margin-top: 0.2em; line-height: 1.2; text-decoration: none !important;">
-      ({{ post.citation }})
-    </span>
-  {% endif %}
-</h2>
+    <h2 class="archive__item-title" itemprop="headline" style="margin-bottom: 0;">
+      <a href="{{ base_path }}{{ post.url }}" rel="permalink" class="pub-title-link">{{ title }}</a>
+    </h2>
 
-<style>
-  /* 僅針對標題連結設定懸停底線 */
-  .publication-title-link:hover {
-    text-decoration: underline !important;
-  }
-  /* 強制確保作者行在任何情況下都沒有底線 */
-  .publication-author-text, 
-  .publication-author-text:hover {
-    text-decoration: none !important;
-    border: none !important;
-  }
-</style>
+    {% if post.citation and post.citation != "" and post.citation != " " %}
+      <div class="pub-author-row">
+        ({{ post.citation }})
+      </div>
+    {% endif %}
+
+    <style>
+      .pub-title-link {
+        text-decoration: none !important;
+        border-bottom: none !important;
+        box-shadow: none !important;
+      }
+      .pub-title-link:hover {
+        text-decoration: underline !important;
+      }
+      .pub-author-row {
+        font-size: 0.75em;
+        font-weight: normal;
+        color: #494e52;
+        margin-top: 0.1em;
+        margin-bottom: 0.4em;
+        line-height: 1.2;
+        text-decoration: none !important;
+        border: none !important;
+      }
+    </style>
 
     {% if post.venue %}
-      <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.5; font-size: 1.0em;">
-        <i style="color: #333;">{{ post.venue }}</i>{% if post.volume and post.volume != "" %}, <b>{{ post.volume }}</b>{% endif %}{% if post.year and post.year != "" %} ({{ post.year }}){% endif %}{% if post.number and post.number != "" %}, {{ post.number }}{% endif %}{% if post.pages and post.pages != "" %}, {{ post.pages }}{% endif %}.
+      <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.5; font-size: 1.05em;">
+        <i style="color: #333;">{{ post.venue }}</i>{% if post.volume %}, <b>{{ post.volume }}</b>{% endif %}{% if post.year %} ({{ post.year }}){% endif %}{% if post.number %}, {{ post.number }}{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %}.
       </p>
     {% endif %}
 
@@ -54,10 +62,10 @@
       {% endif %}
 
       {% if post.remarks and post.remarks != "" %}
-  <span style="margin-left: 12px; font-style: italic; color: #d33; font-size: 0.95em;">
-    [Note: {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}]
-  </span>
-{% endif %}
+        <span style="margin-left: 12px; font-style: italic; color: #d33; font-size: 0.95em;">
+          [Note: {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}]
+        </span>
+      {% endif %}
     </p>
 
   </article>
