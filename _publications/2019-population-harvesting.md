@@ -7,7 +7,7 @@ venue: "J. Math. Biol."
 volume: "78"
 year: "2019"
 pages: "293-329"
-remarks: "EurekAlert!"
+remarks: "[EurekAlert!](https://www.eurekalert.org/news-releases/875870)"
 pub_url: "https://doi.org/10.1007/s00285-018-1275-1"
 pre_url: "https://arxiv.org/abs/1710.01221"
 ---
