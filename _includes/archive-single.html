@@ -45,8 +45,10 @@
       {% endif %}
 
       {% if post.remarks and post.remarks != "" %}
-        <span style="margin-left: 12px; font-style: italic; color: #d33; font-size: 0.9em;">[Note: {{ post.remarks }}]</span>
-      {% endif %}
+  <span style="margin-left: 12px; font-style: italic; color: #d33; font-size: 0.95em;">
+    [Note: {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}]
+  </span>
+{% endif %}
     </p>
 
   </article>
