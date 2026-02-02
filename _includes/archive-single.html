@@ -22,40 +22,51 @@
     {% endif %}
 
     <style>
-      /* 1. 基礎樣式：平時完全隱藏所有底線 */
+      /* 1. 標題連結基礎樣式：徹底關閉所有預設裝飾 */
       .pub-title-link {
         text-decoration: none !important;
         border: none !important;
         box-shadow: none !important;
-        display: inline;
+        display: inline-block; /* 增加命中區域穩定性 */
         color: #337ab7;
-        transition: color 0.2s ease-in-out;
+        position: relative;
+        transition: color 0.15s ease-in-out;
       }
 
-      /* 2. 懸停樣式：出現連續底線 */
+      /* 2. 使用 ::after 偽元素繪製底線，這是一條物理意義上的直線，絕對連續 */
+      .pub-title-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px; /* 調整底線高度 */
+        width: 100%;
+        height: 1.5px;
+        background-color: #23527c;
+        transform: scaleX(0); /* 平時隱藏 */
+        transition: transform 0.15s ease-in-out;
+        transform-origin: bottom left;
+      }
+
+      /* 3. 當滑鼠進入連結區域時，整條線一次性出現，不論裡面是什麼 */
       .pub-title-link:hover {
         color: #23527c !important;
-        /* 使用 box-shadow 確保文字部分有連續底線 */
-        box-shadow: 0 1.5px 0 0 #23527c; 
         text-decoration: none !important;
       }
-
-      /* 3. 關鍵修正：當標題被懸停時，強制內部的 MathJax 符號也顯示底線 */
-      .pub-title-link:hover .MathJax,
-      .pub-title-link:hover .MathJax_CHTML,
-      .pub-title-link:hover .mjx-chtml,
-      .pub-title-link:hover .mjx-math {
-        /* 在公式下方繪製同樣高度與顏色的底線 */
-        box-shadow: 0 1.5px 0 0 #23527c !important;
-        display: inline-block !important;
+      
+      .pub-title-link:hover::after {
+        transform: scaleX(1); /* 懸停時整條線展開 */
       }
 
-      /* 4. 對齊修正：確保公式基線與文字一致，使底線對齊 */
+      /* 4. 強制移除 MathJax 內部的任何潛在底線干擾 */
       .tex2jax_process .MathJax, 
-      .tex2jax_process .mjx-chtml {
+      .tex2jax_process .mjx-chtml,
+      .tex2jax_process .mjx-math {
+        text-decoration: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        /* 確保數學符號不會溢出 a 標籤的 padding，避免觸發閃爍 */
+        display: inline !important; 
         vertical-align: baseline !important;
-        padding: 0 !important;
-        margin: 0 !important;
       }
 
       .pub-author-row {
