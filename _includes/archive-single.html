@@ -22,32 +22,32 @@
     {% endif %}
 
     <style>
-      /* 標題連結基礎樣式 */
+      /* 1. 標題連結：使用傳統底線，但設定為可見 */
       .pub-title-link {
-        text-decoration: none !important;
-        border: none !important;
-        display: inline;
-        /* 使用 box-shadow 模擬底線，這條線會連續穿過所有 HTML 元素 */
-        box-shadow: inset 0 -1px 0 0 #337ab7; 
-        transition: all 0.2s ease-in-out;
-        padding-bottom: 1px;
-      }
-
-      /* 懸停時加深顏色並加粗底線 */
-      .pub-title-link:hover {
-        color: #23527c !important;
-        box-shadow: inset 0 -2px 0 0 #23527c;
-        text-decoration: none !important;
-      }
-
-      /* 強制 MathJax 內部的所有元素都不准產生自己的底線 */
-      .tex2jax_process .MathJax, 
-      .tex2jax_process .MathJax_CHTML, 
-      .tex2jax_process .mjx-chtml,
-      .tex2jax_process .mjx-math * {
-        display: inline !important;
+        text-decoration: underline !important;
+        text-decoration-color: #337ab7 !important;
+        text-underline-offset: 3px;
         border: none !important;
         box-shadow: none !important;
+        color: #337ab7;
+      }
+
+      .pub-title-link:hover {
+        color: #23527c !important;
+        text-decoration-color: #23527c !important;
+      }
+
+      /* 2. 關鍵修正：強制 MathJax 內部的字符也顯示底線，解決斷裂問題 */
+      .tex2jax_process .MathJax_CHTML, 
+      .tex2jax_process .mjx-chtml,
+      .tex2jax_process .mjx-math {
+        text-decoration: underline !important;
+        text-decoration-color: inherit !important;
+        display: inline !important; /* 強制回歸行內流，不切斷底線 */
+      }
+
+      /* 確保上標 s 不會把底線帶到半空中 */
+      .mjx-sup {
         text-decoration: none !important;
       }
 
