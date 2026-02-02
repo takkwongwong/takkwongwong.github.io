@@ -22,37 +22,38 @@
     {% endif %}
 
     <style>
-      /* 標題連結：徹底移除所有底線屬性，改用 shadow 繪製直線 */
+      /* 1. 基礎樣式：平時完全隱藏所有底線 */
       .pub-title-link {
         text-decoration: none !important;
         border: none !important;
+        box-shadow: none !important;
         display: inline;
         color: #337ab7;
-        /* 在文字下方 1px 處畫一條橫跨全標題的 1px 直線 */
-        box-shadow: 0 1px 0 0 #337ab7; 
-        transition: all 0.2s ease-in-out;
+        transition: color 0.2s ease-in-out;
       }
 
+      /* 2. 懸停樣式：出現連續底線 */
       .pub-title-link:hover {
         color: #23527c !important;
-        box-shadow: 0 2px 0 0 #23527c; /* 懸停時底線變粗並加深 */
+        /* 使用 box-shadow 確保文字部分有連續底線 */
+        box-shadow: 0 1.5px 0 0 #23527c; 
         text-decoration: none !important;
       }
 
-      /* 核心修正：強制 MathJax 容器及其內容不產生任何裝飾，並對齊基準線 */
+      /* 3. 關鍵修正：當標題被懸停時，強制內部的 MathJax 符號也顯示底線 */
+      .pub-title-link:hover .MathJax,
+      .pub-title-link:hover .MathJax_CHTML,
+      .pub-title-link:hover .mjx-chtml,
+      .pub-title-link:hover .mjx-math {
+        /* 在公式下方繪製同樣高度與顏色的底線 */
+        box-shadow: 0 1.5px 0 0 #23527c !important;
+        display: inline-block !important;
+      }
+
+      /* 4. 對齊修正：確保公式基線與文字一致，使底線對齊 */
       .tex2jax_process .MathJax, 
-      .tex2jax_process .MathJax_CHTML, 
-      .tex2jax_process .mjx-chtml,
-      .tex2jax_process .mjx-math {
-        display: inline !important;
-        text-decoration: none !important;
-        border: none !important;
-        box-shadow: none !important;
+      .tex2jax_process .mjx-chtml {
         vertical-align: baseline !important;
-      }
-
-      /* 防止 MathJax 的內邊距干擾底線位置 */
-      .mjx-chtml {
         padding: 0 !important;
         margin: 0 !important;
       }
