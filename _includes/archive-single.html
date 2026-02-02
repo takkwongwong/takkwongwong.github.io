@@ -16,8 +16,7 @@
     {% endif %}
 
     <style>
-      /* 1. 殺手鐧：將所有底線相關嘅顏色全部設為「透明」 */
-      /* 就算個主題點樣 force 條線出嚟，透明色係睇唔到嘅 */
+      /* 列表頁底線透明化設定 */
       .archive__item-title a,
       .pub-title-link,
       .pub-title-link:hover {
@@ -25,18 +24,11 @@
         text-decoration: none !important;
         -webkit-text-decoration-color: transparent !important;
         text-decoration-color: transparent !important;
-        border-bottom: none !important;
-        border-bottom-color: transparent !important;
+        border: none !important;
         box-shadow: none !important;
         background: none !important;
       }
 
-      /* 2. Hover 效果：淨係變色，確保完全冇線 */
-      .pub-title-link:hover {
-        color: #23527c !important;
-      }
-
-      /* 3. MathJax 修正：防止公式內部產生任何奇怪嘅邊界或裝飾 */
       .tex2jax_process .MathJax, 
       .tex2jax_process .mjx-chtml,
       .tex2jax_process .mjx-math {
@@ -48,7 +40,6 @@
         vertical-align: baseline !important;
       }
 
-      /* 作者行樣式 */
       .pub-author-row {
         font-size: 0.9em;
         font-weight: normal;
@@ -72,6 +63,12 @@
       {% endif %}
       {% if post.pre_url and post.pre_url != "" %}
         <a href="{{ post.pre_url }}" class="btn btn--warning btn--small" target="_blank" style="padding: 4px 8px; font-size: 0.75em; border-radius: 4px; margin-left: 5px;">Preprint Version</a>
+      {% endif %}
+
+      {% if post.remarks and post.remarks != "" %}
+        <span style="margin-left: 10px; font-style: italic; color: #d33; font-size: 0.85em;">
+          [Note: {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}]
+        </span>
       {% endif %}
     </p>
 
