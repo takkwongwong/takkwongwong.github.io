@@ -22,37 +22,38 @@
     {% endif %}
 
     <style>
-      /* 1. 標題連結：強制關閉系統底線，改用 box-shadow 模擬 */
+      /* 1. 標題連結：徹底移除所有類型的底線 */
       .pub-title-link {
         color: #337ab7;
-        display: inline; /* 確保支援多行換行 */
         text-decoration: none !important;
         border: none !important;
-        /* 將預設底線設為透明，防止出現截圖中的「兩條線」 */
-        -webkit-text-decoration-color: transparent !important;
-        text-decoration-color: transparent !important;
-        transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        box-shadow: none !important;
+        /* 確保完全沒有任何裝飾屬性殘留 */
+        -webkit-text-decoration: none !important;
+        transition: color 0.2s ease-in-out;
       }
 
-      /* 2. 懸停時：使用 box-shadow 畫出唯一的一條連續底線 */
+      /* 2. 懸停時：僅切換顏色 */
       .pub-title-link:hover {
         color: #23527c !important;
         text-decoration: none !important;
-        /* box-shadow 會隨 inline 元素換行，且不會被 MathJax 切斷 */
-        box-shadow: 0 1.5px 0 0 #23527c; 
+        border: none !important;
+        box-shadow: none !important;
       }
 
-      /* 3. 強制修正 MathJax 容器，使其不產生任何多餘線條或偏移 */
+      /* 3. 清理 MathJax 內部樣式，確保不受主題預設 CSS 干擾 */
       .tex2jax_process .MathJax, 
       .tex2jax_process .MathJax_CHTML, 
       .tex2jax_process .mjx-chtml,
       .tex2jax_process .mjx-math {
         display: inline !important;
         text-decoration: none !important;
-        box-shadow: none !important; /* 確保公式內部不產生重疊線 */
+        border: none !important;
+        box-shadow: none !important;
         vertical-align: baseline !important;
       }
 
+      /* 作者行：維持 0.9em 分行顯示 */
       .pub-author-row {
         font-size: 0.9em;
         font-weight: normal;
