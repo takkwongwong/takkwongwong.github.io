@@ -37,8 +37,10 @@ layout: default
           {% endif %}
 
           {% if page.remarks and page.remarks != "" %}
-            <span style="margin-left: 15px; font-style: italic; color: #d33; font-size: 1.0em;">[Note: {{ page.remarks }}]</span>
-          {% endif %}
+  <span style="margin-left: 15px; font-style: italic; color: #d33; font-size: 1.0em;">
+    [Note: {{ page.remarks | markdownify | remove: '<p>' | remove: '</p>' }}]
+  </span>
+{% endif %}
         </p>
 
         {{ content }}
