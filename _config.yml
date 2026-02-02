@@ -1,19 +1,19 @@
 # 1. 網站基本設定
 title: "Tak Kwong WONG | Associate Professor"
 name: "Tak Kwong WONG"
-description: "Associate Professor at the Department of Mathematics, ShenZhen University."
+description: "Associate Professor at the Department of Mathematics, Shenzhen University."
 url: "https://takkwongwong.github.io"
 baseurl: "" # 確保此處為空
 repository: "takkwongwong/takkwongwong.github.io"
 
-# 2. 主題設定 (修正找不到主題的錯誤)
+# 2. 主題設定
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-minimal_mistakes_skin: "default" # 可選: "air", "aqua", "contrast", "dark"
+minimal_mistakes_skin: "default"
 
 # 3. 個人資料 (側邊欄)
 author:
   name: "Tak Kwong WONG"
-  avatar: "Wong.jpg" # 請確認 images/Wong.jpg 已上傳
+  avatar: "Wong.jpg"
   bio: "Associate Professor, Department of Mathematics, SZU"
   location: ""
   links:
@@ -27,7 +27,7 @@ author:
       icon: "fas fa-fw fa-book"
       url: "https://mathscinet.ams.org/author?authorId=972012"
 
-# 4. 定義 Collections (讓論文列表顯示的關鍵)
+# 4. 定義 Collections
 collections:
   publications:
     output: true
@@ -44,7 +44,6 @@ include:
 
 # 6. 預設頁面佈局設定
 defaults:
-  # 論文 (Publications)
   - scope:
       path: ""
       type: publications
@@ -52,14 +51,12 @@ defaults:
       layout: single
       author_profile: true
       share: true
-  # 教學 (Teaching)
   - scope:
       path: ""
       type: teaching
     values:
       layout: single
       author_profile: true
-  # 一般頁面 (Pages)
   - scope:
       path: ""
       type: pages
@@ -67,6 +64,13 @@ defaults:
       layout: single
       author_profile: true
 
-# 7. 數學公式支援 (PDE 研究必備)
+# 7. 數學公式與 Markdown 高階設定
 markdown: kramdown
 mathjax: true
+kramdown:
+  math_engine: mathjax
+  math_engine_opts:
+    entity_output: as_char # 確保符號不被轉義，解決 $H^s$ 顯示問題
+  input: GFM             # 使用 GitHub Flavored Markdown 提高相容性
+  hard_wrap: false
+  syntax_highlighter: rouge
