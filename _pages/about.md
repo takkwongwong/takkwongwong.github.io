@@ -5,5 +5,5 @@ excerpt: "About me"
 author_profile: true
 ---
 
-I am an **Associate Professor** in the [Department of Mathematics](https://math.szu.edu.cn/) at **Shenzhen University (SZU)**.
+I am an **Associate Professor** in the [School of Mathematical Sciences](https://math.szu.edu.cn/) at **Shenzhen University (SZU)**.
 
