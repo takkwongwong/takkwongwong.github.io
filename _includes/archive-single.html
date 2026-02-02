@@ -6,14 +6,12 @@
   {% assign teaser = site.teaser %}
 {% endif %}
 
-{% assign title = post.title %}
-
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline" style="margin-bottom: 0;">
       <a href="{{ base_path }}{{ post.url }}" rel="permalink" class="pub-title-link tex2jax_process" style="text-decoration: none !important;">
-        {% raw %}{{ title }}{% endraw %}
+        {{ post.title }}
       </a>
     </h2>
 
@@ -31,7 +29,7 @@
         display: inline;
       }
       .pub-title-link:hover {
-        /* 使用 border 代替 underline，解決 MathJax 渲染後底線斷開的問題 */
+        /* 使用邊框模擬底線，確保穿過 H^s 不斷開 */
         border-bottom: 2px solid #225e8c !important;
         text-decoration: none !important;
       }
@@ -45,7 +43,7 @@
         text-decoration: none !important;
         border: none !important;
       }
-      /* 強制 MathJax 容器繼承邊框效果，確保底線連續穿過數學符號 */
+      /* 強制 MathJax 容器繼承邊框效果 */
       .MathJax, .MathJax_CHTML, .mjx-chtml {
         border-bottom: inherit !important;
         display: inline-block !important;
