@@ -29,17 +29,37 @@
         </li>
       {% endif %}
 
+      <style>
+        .social-icons i { width: 1.25em; text-align: center; }
+        .ai-google-scholar-square { color: #4285F4; } /* Scholar 藍 */
+        .fa-orcid { color: #A6CE39; }               /* ORCID 綠 */
+        .fa-book-reader { color: #9B59B6; }        /* MathSciNet 紫 */
+        .fa-envelope { color: #E74C3C; }           /* Email 紅 */
+        .author__urls { font-size: 0.85em; }       /* 稍微調細字體，避免 Email 爆位 */
+      </style>
+
       {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}" itemprop="sameAs"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
+        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap ai-google-scholar-square" aria-hidden="true"></i> Google Scholar</a></li>
       {% endif %}
 
       {% if author.orcid %}
-        <li><a href="https://orcid.org/{{ author.orcid }}" itemprop="sameAs"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i> ORCID</a></li>
+        <li><a href="https://orcid.org/{{ author.orcid }}"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i> ORCID</a></li>
       {% endif %}
 
       {% if author.links %}
         {% for link in author.links %}
-          <li><a href="{{ link.url }}" itemprop="sameAs"><i class="{{ link.icon | default: 'fas fa-fw fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
+          <li>
+            <a href="{{ link.url }}">
+              {% if link.label contains "Math" or link.label contains "MR" %}
+                <i class="fas fa-fw fa-book-reader" aria-hidden="true"></i>
+              {% elsif link.label contains "Email" %}
+                <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+              {% else %}
+                <i class="{{ link.icon | default: 'fas fa-fw fa-link' }}" aria-hidden="true"></i>
+              {% endif %}
+              {{ link.label }}
+            </a>
+          </li>
         {% endfor %}
       {% endif %}
     </ul>
