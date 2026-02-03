@@ -4,6 +4,6 @@ collection: publications
 date: 2024-02-01
 citation: "with Hao Liu, Suresh P. Sethi and Sheung Chi Phillip Yam"
 venue: "Preprint"
-year: "2024"
+year: ""
 pre_url: "https://arxiv.org/abs/2402.10768"
 ---
