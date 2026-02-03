@@ -1,7 +1,7 @@
 ---
 title: "Global well-posedness of first-order mean field games and master equations with nonlinear dynamics"
 collection: publications
-date: 2023-11-01
+date: 2026-02-01
 citation: "with Alain Bensoussan, Sheung Chi Phillip Yam and Hongwei Yuan"
 venue: "Preprint"
 year: ""
