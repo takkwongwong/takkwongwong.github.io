@@ -19,16 +19,13 @@ author:
   # 內建支持：填入連結或 ID
   googlescholar: "https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ"
   orcid: "0000-0002-6454-984X"
-
-  # 自定義連結：處理 MR Author ID 同埋防 Spam Email
   links:
     - label: "MR Author ID: 972012"
       icon: "fas fa-fw fa-book"
       url: "https://mathscinet.ams.org/author?authorId=972012"
-      
     - label: "Email: takkwongwong [at] szu.edu.cn"
       icon: "fas fa-fw fa-envelope"
-      url: "#"
+      url: "mailto:takkwongwong@szu.edu.cn"
 
 # 4. 定義 Collections
 collections:
