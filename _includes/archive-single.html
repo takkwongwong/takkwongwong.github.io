@@ -66,16 +66,16 @@
       {% endif %}
 
 {% if post.remarks and post.remarks != "" %}
-  <br> <span style="display: inline-block; margin-top: 5px;">
+  <span style="display: inline-block; margin-left: 5px; vertical-align: bottom;">
     {% if post.remarks contains "[" %}
       {% assign remark_text = post.remarks | split: "[" | last | split: "]" | first %}
       {% assign remark_url = post.remarks | split: "(" | last | split: ")" | first %}
-      <a href="{{ remark_url }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
+      <a href="{{ remark_url }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; line-height: 1.5;">
         {{ remark_text }}
       </a>
     {% else %}
-      <a href="{{ post.remarks_url | default: '#' }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
-        {{ post.remarks | strip_html }}
+      <a href="{{ post.remarks_url | default: '#' }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; line-height: 1.5;">
+        {{ post.remarks | strip_html | strip_newlines }}
       </a>
     {% endif %}
   </span>
