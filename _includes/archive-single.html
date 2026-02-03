@@ -51,9 +51,9 @@
       }
     </style>
 
-    {% if post.venue %}
+ {% if post.venue %}
       <p class="archive__item-excerpt" itemprop="description" style="margin-top: 0; margin-bottom: 0.5em; line-height: 1.5; font-size: 1.05em;">
-        <i style="color: #333;">{{ post.venue }}</i>{% if post.volume %}, <b>{{ post.volume }}</b>{% endif %}{% if post.year %} ({{ post.year }}){% endif %}{% if post.number %}, {{ post.number }}{% endif %}{% if post.pages %}, {{ post.pages }}{% endif %}.
+        <i style="color: #333;">{{ post.venue }}</i>{% if post.volume and post.volume != "" %}, <b>{{ post.volume }}</b>{% endif %}{% if post.year and post.year != "" %} ({{ post.year }}){% endif %}{% if post.number and post.number != "" %}, {{ post.number }}{% endif %}{% if post.pages and post.pages != "" %}, {{ post.pages }}{% endif %}.
       </p>
     {% endif %}
 
