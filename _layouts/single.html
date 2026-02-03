@@ -21,9 +21,6 @@ layout: default
           .page__title, 
           .page__title * {
             text-decoration: none !important;
-            -webkit-text-decoration: none !important;
-            -webkit-text-decoration-color: transparent !important;
-            text-decoration-color: transparent !important;
             border: none !important;
             box-shadow: none !important;
             background: none !important;
@@ -33,9 +30,6 @@ layout: default
           .page__title .mjx-chtml,
           .page__title .mjx-math {
             display: inline !important;
-            text-decoration: none !important;
-            border: none !important;
-            box-shadow: none !important;
             background: transparent !important;
             vertical-align: baseline !important;
           }
@@ -51,34 +45,34 @@ layout: default
       <section class="page__content" itemprop="text">
         {% if page.venue %}
           <p style="margin-top: 0; margin-bottom: 0.8em; line-height: 1.5; font-size: 1.1em;">
-            <i style="color: #333;">{{ page.venue }}</i>{% if page.volume %}, <b>{{ page.volume }}</b>{% endif %}{% if page.year %} ({{ page.year }}){% endif %}{% if page.number %}, {{ page.number }}{% endif %}{% if page.pages %}, {{ page.pages }}{% endif %}.
+            <i style="color: #333;">{{ page.venue }}</i>{% if page.volume and page.volume != "" %}, <b>{{ page.volume }}</b>{% endif %}{% if page.year and page.year != "" %} ({{ page.year }}){% endif %}{% if page.number and page.number != "" %}, {{ page.number }}{% endif %}{% if page.pages and page.pages != "" %}, {{ page.pages }}{% endif %}.
           </p>
         {% endif %}
 
-        <p style="margin-top: 0; margin-bottom: 2em;">
+        <p style="margin-top: 0; margin-bottom: 2em; display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
           {% if page.pub_url and page.pub_url != "" %}
-            <a href="{{ page.pub_url }}" class="btn btn--info" target="_blank" style="padding: 6px 12px; font-size: 0.85em; border-radius: 4px;">Published Version</a>
+            <a href="{{ page.pub_url }}" class="btn btn--info" target="_blank" style="padding: 5px 12px; font-size: 0.8em; border-radius: 4px; font-weight: bold; margin: 0; line-height: 1.2;">Published Version</a>
           {% endif %}
           
           {% if page.pre_url and page.pre_url != "" %}
-            <a href="{{ page.pre_url }}" class="btn btn--warning" target="_blank" style="padding: 6px 12px; font-size: 0.85em; border-radius: 4px; margin-left: 8px;">Preprint</a>
+            <a href="{{ page.pre_url }}" class="btn btn--warning" target="_blank" style="padding: 5px 12px; font-size: 0.8em; border-radius: 4px; font-weight: bold; margin: 0; line-height: 1.2;">Preprint</a>
           {% endif %}
 
-        {% if page.remarks and page.remarks != "" %}
-  <span style="display: inline-block; margin-left: 5px; vertical-align: top;">
-    {% if page.remarks contains "[" %}
-      {% assign remark_text = page.remarks | split: "[" | last | split: "]" | first %}
-      {% assign remark_url = page.remarks | split: "(" | last | split: ")" | first %}
-      <a href="{{ remark_url }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 5px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; line-height: 1.2; border: 1px solid #28a745;">
-        {{ remark_text }}
-      </a>
-    {% else %}
-      <a href="{{ page.remarks_url | default: '#' }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 5px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; line-height: 1.2; border: 1px solid #28a745;">
-        {{ page.remarks | strip_html | strip_newlines }}
-      </a>
-    {% endif %}
-  </span>
-{% endif %}
+          {% if page.remarks and page.remarks != "" %}
+            <span style="display: inline-block;">
+              {% if page.remarks contains "[" %}
+                {% assign remark_text = page.remarks | split: "[" | last | split: "]" | first %}
+                {% assign remark_url = page.remarks | split: "(" | last | split: ")" | first %}
+                <a href="{{ remark_url }}" style="background-color: #28a745; color: white !important; font-size: 0.8em; padding: 5px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; line-height: 1.2; border: 1px solid #28a745;">
+                  {{ remark_text }}
+                </a>
+              {% else %}
+                <a href="{{ page.remarks_url | default: '#' }}" style="background-color: #28a745; color: white !important; font-size: 0.8em; padding: 5px 12px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block; line-height: 1.2; border: 1px solid #28a745;">
+                  {{ page.remarks | strip_html | strip_newlines }}
+                </a>
+              {% endif %}
+            </span>
+          {% endif %}
         </p>
 
         {{ content }}
