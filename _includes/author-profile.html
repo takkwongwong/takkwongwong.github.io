@@ -7,7 +7,7 @@
     {% if author.avatar contains "://" %}
       <img src="{{ author.avatar }}" alt="{{ author.name }}" itemprop="image">
     {% else %}
-      <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" class="author__avatar" alt="{{ author.name }}" itemprop="image">
+      <img src="{{ author.avatar | prepend: "/images/" | absolute_url }}" class="author__avatar" alt="{{ author.name }}" itemprop="image">
     {% endif %}
   </div>
 
@@ -41,10 +41,6 @@
         {% for link in author.links %}
           <li><a href="{{ link.url }}" itemprop="sameAs"><i class="{{ link.icon | default: 'fas fa-fw fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
         {% endfor %}
-      {% endif %}
-      
-      {% if author.email and author.links == nil %}
-        <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> Email</a></li>
       {% endif %}
     </ul>
   </div>
