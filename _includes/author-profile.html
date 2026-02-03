@@ -1,51 +1,32 @@
 {% assign author = page.author | default: page.authors[0] | default: site.author %}
-{% assign base_path = site.baseurl | append: "/" %}
-
 <div itemscope itemtype="http://schema.org/Person">
-
   <div class="author__avatar">
-    {% if author.avatar contains "://" %}
-      <img src="{{ author.avatar }}" alt="{{ author.name }}" itemprop="image">
-    {% else %}
-      <img src="{{ author.avatar | prepend: "/images/" | absolute_url }}" class="author__avatar" alt="{{ author.name }}" itemprop="image">
-    {% endif %}
+    <img src="{{ author.avatar | absolute_url }}" class="author__avatar" alt="{{ author.name }}">
   </div>
-
   <div class="author__content">
-    <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
-    {% if author.bio %}
-      <p class="author__bio" itemprop="description">
-        {{ author.bio }}
-      </p>
-    {% endif %}
+    <h3 class="author__name">{{ author.name }}</h3>
+    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
   </div>
-
   <div class="author__urls-wrapper">
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
-      {% if author.location %}
-        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
-          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">{{ author.location }}</span>
-        </li>
-      {% endif %}
-
+      <style>
+        /* 強制顯示顏色與樣式 */
+        .social-icons i { width: 1.25em; text-align: center; margin-right: 5px; }
+        .fa-graduation-cap { color: #4285F4 !important; } 
+        .fa-orcid { color: #A6CE39 !important; }
+        .fa-book-open { color: #9B59B6 !important; }
+        .fa-envelope { color: #E74C3C !important; }
+        .author__urls li { font-size: 0.82em; margin-bottom: 5px; }
+      </style>
       {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
+        <li><a href="https://scholar.google.com/citations?user=H8iL-GAAAAAJ"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
       {% endif %}
-
       {% if author.orcid %}
-        <li><a href="https://orcid.org/{{ author.orcid }}"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i> ORCID</a></li>
+        <li><a href="https://orcid.org/0000-0002-3903-8742"><i class="fab fa-fw fa-orcid"></i> ORCID</a></li>
       {% endif %}
-
-      {% if author.links %}
-        {% for link in author.links %}
-          <li>
-            <a href="{{ link.url }}">
-              <i class="{{ link.icon | default: 'fas fa-fw fa-link' }}" aria-hidden="true"></i> {{ link.label }}
-            </a>
-          </li>
-        {% endfor %}
-      {% endif %}
+      <li><a href="https://mathscinet.ams.org/mathscinet/search/author.html?mranid=1021422"><i class="fas fa-fw fa-book-open"></i> MathSciNet</a></li>
+      <li><a href="mailto:takkwong@szu.edu.cn"><i class="fas fa-fw fa-envelope"></i> takkwong [at] szu.edu.cn</a></li>
     </ul>
   </div>
 </div>
