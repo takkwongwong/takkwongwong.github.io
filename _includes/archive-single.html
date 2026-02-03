@@ -65,22 +65,19 @@
         <a href="{{ post.pre_url }}" class="btn btn--warning btn--small" target="_blank" style="padding: 4px 8px; font-size: 0.75em; border-radius: 4px; margin-left: 5px;">Preprint Version</a>
       {% endif %}
 
-  {% if post.remarks and post.remarks != "" %}
-  <span style="margin-left: 10px !important;">
-    <a href="{{ post.remarks_url | default: '#' }}" 
-       style="background: #28a745 !important; 
-              color: #ffffff !important; 
-              font-size: 13px !important; 
-              padding: 3px 10px !important; 
-              border-radius: 4px !important; 
-              text-decoration: none !important; 
-              display: inline-block !important; 
-              vertical-align: middle !important;
-              font-weight: bold !important;
-              border: none !important;
-              line-height: 1.5 !important;">
-      {{ post.remarks | strip_html | strip_newlines }}
-    </a>
+{% if post.remarks and post.remarks != "" %}
+  <br> <span style="display: inline-block; margin-top: 5px;">
+    {% if post.remarks contains "[" %}
+      {% assign remark_text = post.remarks | split: "[" | last | split: "]" | first %}
+      {% assign remark_url = post.remarks | split: "(" | last | split: ")" | first %}
+      <a href="{{ remark_url }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
+        {{ remark_text }}
+      </a>
+    {% else %}
+      <a href="{{ post.remarks_url | default: '#' }}" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
+        {{ post.remarks | strip_html }}
+      </a>
+    {% endif %}
   </span>
 {% endif %}
     </p>
