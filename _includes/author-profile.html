@@ -2,7 +2,11 @@
 
 <div itemscope itemtype="http://schema.org/Person">
   <div class="author__avatar">
-    <img src="{{ author.avatar | relative_url }}" class="author__avatar" alt="{{ author.name }}" itemprop="image">
+    {% if author.avatar contains "://" %}
+      <img src="{{ author.avatar }}" alt="{{ author.name }}" itemprop="image">
+    {% else %}
+      <img src="{{ author.avatar | absolute_url }}" class="author__avatar" alt="{{ author.name }}" itemprop="image">
+    {% endif %}
   </div>
 
   <div class="author__content">
@@ -19,14 +23,13 @@
         .social-icons i { width: 1.25em; text-align: center; margin-right: 5px; }
         .fa-graduation-cap { color: #4285F4 !important; } 
         .fa-orcid { color: #A6CE39 !important; }
+        .fa-book-open { color: #9B59B6 !important; }
         .fa-envelope { color: #E74C3C !important; }
       </style>
-      {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
-      {% endif %}
-      {% if author.orcid %}
-        <li><a href="https://orcid.org/{{ author.orcid }}"><i class="fab fa-fw fa-orcid"></i> ORCID</a></li>
-      {% endif %}
+      
+      <li><a href="https://scholar.google.com/citations?user=H8iL-GAAAAAJ"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
+      <li><a href="https://orcid.org/0000-0002-3903-8742"><i class="fab fa-fw fa-orcid"></i> ORCID</a></li>
+      <li><a href="https://mathscinet.ams.org/mathscinet/search/author.html?mranid=1021422"><i class="fas fa-fw fa-book-open"></i> MathSciNet</a></li>
       <li><a href="mailto:takkwong@szu.edu.cn"><i class="fas fa-fw fa-envelope"></i> Email</a></li>
     </ul>
   </div>
