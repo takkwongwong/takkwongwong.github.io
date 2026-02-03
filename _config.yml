@@ -23,7 +23,7 @@ author:
     - label: "MathSciNet"
       icon: "fas fa-fw fa-book"
       url: "https://mathscinet.ams.org/author?authorId=972012"
-    - label: "Email: takkwongwong [at] szu.edu.cn"
+    - label: "Email: takkwong [at] szu.edu.cn"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:takkwong@szu.edu.cn"
       
