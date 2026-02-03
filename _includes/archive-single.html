@@ -65,19 +65,21 @@
         <a href="{{ post.pre_url }}" class="btn btn--warning btn--small" target="_blank" style="padding: 4px 8px; font-size: 0.75em; border-radius: 4px; margin-left: 5px;">Preprint Version</a>
       {% endif %}
 
-   {% if post.remarks and post.remarks != "" %}
-  <span style="margin-left: 10px !important; display: inline-block !important;">
+  {% if post.remarks and post.remarks != "" %}
+  <span style="margin-left: 10px !important;">
     <a href="{{ post.remarks_url | default: '#' }}" 
-       style="background-color: #28a745 !important; 
-              color: white !important; 
-              font-size: 0.75em !important; 
-              padding: 4px 10px !important; 
+       style="background: #28a745 !important; 
+              color: #ffffff !important; 
+              font-size: 13px !important; 
+              padding: 3px 10px !important; 
               border-radius: 4px !important; 
               text-decoration: none !important; 
+              display: inline-block !important; 
+              vertical-align: middle !important;
               font-weight: bold !important;
-              display: inline-block !important;
+              border: none !important;
               line-height: 1.5 !important;">
-      {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}
+      {{ post.remarks | strip_html | strip_newlines }}
     </a>
   </span>
 {% endif %}
