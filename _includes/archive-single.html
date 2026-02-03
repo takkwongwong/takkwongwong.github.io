@@ -67,7 +67,7 @@
 
     {% if post.remarks and post.remarks != "" %}
   <span style="margin-left: 10px;">
-    <a href="{{ post.remarks_url | default: '#' }}" class="btn btn--success" style="font-size: 0.75em; padding: 4px 8px; border-radius: 4px;">
+    <a href="{{ post.remarks_url | default: '#' }}" class="btn" style="background-color: #28a745; color: white; font-size: 0.75em; padding: 4px 10px; border-radius: 4px; border: none; font-weight: bold; text-decoration: none; display: inline-block;">
       {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}
     </a>
   </span>
