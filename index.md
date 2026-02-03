@@ -1,8 +1,8 @@
 ---
-layout: home
-author_profile: true
+layout: about
 title: "About Me"
 permalink: /
+author_profile: true
 ---
 
 I am an **Associate Professor** in the [School of Mathematical Sciences](https://math.szu.edu.cn) at **Shenzhen University (SZU)**.
