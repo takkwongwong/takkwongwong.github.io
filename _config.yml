@@ -20,15 +20,13 @@ author:
   googlescholar: "https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ"
   orcid: "0000-0002-6454-984X"
   links:
-    - label: "MR Author ID: 972012"
+    - label: "MathSciNet"
       icon: "fas fa-fw fa-book"
       url: "https://mathscinet.ams.org/author?authorId=972012"
     - label: "Email: takkwongwong [at] szu.edu.cn"
       icon: "fas fa-fw fa-envelope"
-      url: "mailto:takkwongwong@szu.edu.cn"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/takkwongwong"
+      url: "mailto:takkwong@szu.edu.cn"
+      
 
 # 4. 定義 Collections
 collections:
