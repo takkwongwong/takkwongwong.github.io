@@ -30,16 +30,23 @@
       {% endif %}
 
       <style>
-        .social-icons i { width: 1.25em; text-align: center; }
-        .ai-google-scholar-square { color: #4285F4; } /* Scholar 藍 */
-        .fa-orcid { color: #A6CE39; }               /* ORCID 綠 */
-        .fa-book-reader { color: #9B59B6; }        /* MathSciNet 紫 */
-        .fa-envelope { color: #E74C3C; }           /* Email 紅 */
-        .author__urls { font-size: 0.85em; }       /* 稍微調細字體，避免 Email 爆位 */
+        /* 修正圖標顏色與間距 */
+        .social-icons i { width: 1.25em; text-align: center; margin-right: 5px; }
+        .fa-graduation-cap { color: #4285F4; } /* Scholar 藍色四方帽 */
+        .fa-orcid { color: #A6CE39; }          /* ORCID 綠 */
+        .fa-book-open { color: #9B59B6; }      /* MathSciNet 紫色書本 */
+        .fa-envelope { color: #E74C3C; }       /* Email 紅 */
+        
+        /* 解決 Email 空間不足問題 */
+        .author__urls li {
+          white-space: nowrap;
+          font-size: 0.82em; /* 稍微縮細少少確保 Email 唔會斷行 */
+          margin-bottom: 5px;
+        }
       </style>
 
       {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap ai-google-scholar-square" aria-hidden="true"></i> Google Scholar</a></li>
+        <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap" aria-hidden="true"></i> Google Scholar</a></li>
       {% endif %}
 
       {% if author.orcid %}
@@ -51,7 +58,7 @@
           <li>
             <a href="{{ link.url }}">
               {% if link.label contains "Math" or link.label contains "MR" %}
-                <i class="fas fa-fw fa-book-reader" aria-hidden="true"></i>
+                <i class="fas fa-fw fa-book-open" aria-hidden="true"></i>
               {% elsif link.label contains "Email" %}
                 <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
               {% else %}
