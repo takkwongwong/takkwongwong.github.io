@@ -65,11 +65,13 @@
         <a href="{{ post.pre_url }}" class="btn btn--warning btn--small" target="_blank" style="padding: 4px 8px; font-size: 0.75em; border-radius: 4px; margin-left: 5px;">Preprint Version</a>
       {% endif %}
 
-      {% if post.remarks and post.remarks != "" %}
-        <span style="margin-left: 10px; font-style: italic; color: #d33; font-size: 0.85em;">
-          [Note: {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}]
-        </span>
-      {% endif %}
+    {% if post.remarks and post.remarks != "" %}
+  <span style="margin-left: 10px;">
+    <a href="{{ post.remarks_url | default: '#' }}" class="btn btn--info" style="font-size: 0.75em; padding: 4px 8px; border-radius: 4px;">
+      Note: {{ post.remarks | markdownify | remove: '<p>' | remove: '</p>' }}
+    </a>
+  </span>
+{% endif %}
     </p>
 
   </article>
