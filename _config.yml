@@ -26,6 +26,9 @@ author:
     - label: "Email: takkwongwong [at] szu.edu.cn"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:takkwongwong@szu.edu.cn"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/takkwongwong"
 
 # 4. 定義 Collections
 collections:
