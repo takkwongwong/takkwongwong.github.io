@@ -32,36 +32,29 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 1. 保持標題為清楚的亮藍色 */
+  /* 1. 強制重設深色模式下的文字顏色變數 */
+  [data-theme="dark"] {
+    --text-color: #ffffff !important;         /* 強制全局文字變白 */
+    --archive-excerpt-color: #ffffff !important; /* 針對 Minimal Mistakes 的摘要顏色 */
+  }
+
+  /* 2. 核心修正：鎖定括號內作者名字的容器 */
+  [data-theme="dark"] .archive__item-excerpt {
+    color: #ffffff !important;
+    opacity: 1 !important;                     /* 徹底取消透明度 */
+    -webkit-text-fill-color: #ffffff !important; 
+  }
+
+  /* 3. 恢復論文標題的亮藍色，避免全白失去層次感 */
   [data-theme="dark"] .archive__item-title a {
     color: #4493f8 !important;
+    text-decoration: underline;
   }
 
-  /* 2. 核心修正：強制讓括號內的作者名（excerpt）顯現 */
-  [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .archive__item-excerpt p,
-  [data-theme="dark"] .archive__item-excerpt span {
-    color: #ced4da !important;         /* 淺灰色，確保在黑底下清晰 */
-    opacity: 1 !important;             /* 強制取消可能導致隱形的透明度 */
-    -webkit-text-fill-color: #ced4da !important; 
-  }
-
-  /* 3. 針對作者名字所在的特定文字區塊進行爆破 */
-  /* 有時主題會把這行字當成普通的 text node，我們用通配符鎖定 */
-  [data-theme="dark"] .archive__item-excerpt * {
-    color: #ced4da !important;
-    opacity: 1 !important;
-  }
-
-  /* 4. 期刊名 (斜體) 保持白色，與作者名做出區分 */
+  /* 4. 針對期刊名 (斜體) 保持白色 */
   [data-theme="dark"] .archive__item-excerpt em {
     color: #ffffff !important;
     font-style: italic !important;
-    opacity: 1 !important;
+    font-weight: bold;
   }
-
-  /* 5. 恢復按鈕原本的顏色，不要太刺眼 */
-  .btn--primary { background-color: #2b7b8c !important; }
-  .btn--warning { background-color: #f39c12 !important; }
-  .btn--success { background-color: #27ae60 !important; }
 </style>
