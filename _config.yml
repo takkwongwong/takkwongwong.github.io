@@ -3,18 +3,17 @@ title: "Tak Kwong WONG | Associate Professor"
 name: "Tak Kwong WONG"
 description: "Associate Professor at the School of Mathematical Sciences, Shenzhen University."
 url: "https://takkwongwong.github.io"
-baseurl: "" 
+baseurl: ""
 repository: "takkwongwong/takkwongwong.github.io"
 
 # 2. 主題設定
-# 注意：確保你 repo 內無重複的 CSS 或 _layouts 檔案干擾
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-minimal_mistakes_skin: "default" # 你可以試下用 "air" 或 "contrast" 睇下樣式有無變
+minimal_mistakes_skin: "default"
 
-# 3. 個人資料 (側邊欄) - 修正了縮排與路徑
+# 3. 個人資料 (側邊欄) - 已修正縮排
 author:
   name: "Tak Kwong WONG"
-  avatar: "/images/Wong.jpg" # 加上 / 確保從根目錄讀取
+  avatar: "/images/Wong.jpg"
   bio: "Associate Professor, School of Mathematical Sciences, Shenzhen University"
   location: "Shenzhen, China"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ"
@@ -41,42 +40,35 @@ include:
   - _pages
   - _publications
   - _teaching
+  - assets
 
-# 6. 導航列設定 (確保 About 指向首頁 index.md)
-# 如果你 repo 有 _data/navigation.yml，請在那邊修改路徑為 '/'
-footer:
-  links:
-    - label: "Google Scholar"
-      icon: "fas fa-fw fa-graduation-cap"
-      url: "https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ"
-
-# 7. 預設頁面佈局設定 - 確保 author_profile 永遠開啟
+# 6. 預設頁面佈局設定 - 已修正 pages 部分，確保 index.md 套用樣式
 defaults:
   - scope:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: "single"
       author_profile: true
   - scope:
       path: ""
       type: publications
     values:
-      layout: single
+      layout: "single"
       author_profile: true
   - scope:
       path: ""
       type: teaching
     values:
-      layout: single
+      layout: "single"
       author_profile: true
   - scope:
-      path: "" # 這裡修正了 pages 的佈局，確保 About Me 正常
+      path: ""
     values:
-      layout: single
+      layout: "single"
       author_profile: true
 
-# 8. 數學公式與 Markdown 高階設定
+# 7. 數學公式與 Markdown 高階設定
 markdown: kramdown
 mathjax: true
 kramdown:
