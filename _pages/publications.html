@@ -31,25 +31,32 @@ author_profile: true
   {% endfor %}
 {% endif %}
 
+
 <style>
-  /* 鎖定深色模式下的論文列表 */
-  [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .archive__item-excerpt * {
-    /* 核心大絕：不管原本是什麼顏色，直接反轉成亮色 */
-    filter: invert(1) brightness(2) contrast(1.2) !important;
+  /* 1. 淨係針對論文摘要入面嗰行字（作者名） */
+  [data-theme="dark"] .archive__item-excerpt {
+    color: #fdfdfd !important; /* 夾硬變白 */
+    opacity: 1 !important;      /* 唔准佢透明變黑 */
+  }
+
+  /* 2. 救返期刊名 (Venue) 同埋斜體字 */
+  [data-theme="dark"] .archive__item-excerpt i,
+  [data-theme="dark"] .archive__item-excerpt em {
+    color: #ffffff !important;
+    font-style: italic !important;
     opacity: 1 !important;
-    color: #000 !important; /* 在 invert(1) 下，設定黑色會顯示為白色 */
   }
 
-  /* 保護標題不要被反向（否則藍色會變橘色） */
-  [data-theme="dark"] .archive__item-title a {
-    filter: none !important;
-    color: #4493f8 !important;
-    display: inline-block;
-  }
-
-  /* 保護按鈕不要變色 */
+  /* 3. 醫返好個掣！等啲掣唔好再變黑 */
   [data-theme="dark"] .btn {
-    filter: invert(1) brightness(0.5) !important;
+    color: #ffffff !important;   /* 字變返白 */
+    filter: none !important;      /* 熄咗之前嗰個反轉濾鏡 */
+    opacity: 1 !important;
+  }
+
+  /* 4. 保住個藍色標題，唔好俾其他 CSS 整亂 */
+  [data-theme="dark"] .archive__item-title a {
+    color: #4493f8 !important;
+    opacity: 1 !important;
   }
 </style>
