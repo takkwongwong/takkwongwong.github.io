@@ -2,7 +2,7 @@
 title: "A probabilistic proof for Fourier inversion formula"
 collection: publications
 date: 2018-01-01
-citation: '<span style="color: #ffffff !important; opacity: 1 !important;">with Sheung Chi Phillip Yam</span>'
+citation: 'with Sheung Chi Phillip Yam</span>'
 venue: "Statistics & Probability Letters"
 volume: "141"
 year: "2018"
