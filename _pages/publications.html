@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="https://scholar.google.com/citations?hl=en&user={{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">Following are some published papers, as well as preprints. (The papers on arXiv are NOT their final versions.).</div>
 {% endif %}
 
 {% include base_path %}
@@ -32,22 +32,23 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 鎖定深色模式下的所有論文描述文字 */
+  /* 鎖定深色模式下的論文描述區塊 */
   [data-theme="dark"] .archive__item-excerpt,
   [data-theme="dark"] .archive__item-excerpt * {
-    color: #e1e4e8 !important; /* 強制改為亮白色 */
-    opacity: 1 !important;
+    color: #ffffff !important; /* 強制所有文字（包括括號內的作者）變純白 */
+    opacity: 1 !important;     /* 確保完全不透明 */
   }
 
-  /* 針對斜體顯示的期刊名稱 */
+  /* 針對期刊名稱（斜體），維持亮藍色或你喜歡的顏色以作區分 */
   [data-theme="dark"] .archive__item-excerpt em {
-    color: #58a6ff !important; /* 給期刊名一個亮藍色，增加區分度 */
+    color: #58a6ff !important; 
     font-style: italic;
+    font-weight: bold;
   }
 
-  /* 針對括號內的作者名 */
-  [data-theme="dark"] .archive__item-excerpt p {
-    margin-top: 0.5em;
-    color: #ced4da !important;
+  /* 確保連結顏色在黑底上也清晰 */
+  [data-theme="dark"] .archive__item-excerpt a {
+    color: #4493f8 !important;
+    text-decoration: underline;
   }
 </style>
