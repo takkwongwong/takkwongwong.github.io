@@ -32,25 +32,28 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 鎖定深色模式下的論文描述區塊 */
-  [data-theme="dark"] .page__content .archive__item-excerpt,
-  [data-theme="dark"] .page__content .archive__item-excerpt * {
-    color: #ffffff !important;         /* 強制文字變純白 */
-    opacity: 1 !important;             /* 強制取消透明度 (這是關鍵) */
-    -webkit-text-fill-color: #ffffff !important; 
+  /* 1. 當切換到深色模式時 */
+  [data-theme="dark"] .archive__item {
+    color: #ffffff !important;
   }
 
-  /* 針對期刊名稱（斜體），維持亮藍色或維持亮白色 */
-  [data-theme="dark"] .page__content .archive__item-excerpt em {
-    color: #ffffff !important;         /* 也可以改回 #58a6ff 如果你喜歡藍色 */
+  /* 2. 強制讓論文描述區（包含作者、期刊、括號）變白 */
+  [data-theme="dark"] .archive__item-excerpt,
+  [data-theme="dark"] .archive__item-excerpt * {
+    color: #f0f0f0 !important;   /* 淺白色 */
+    opacity: 1 !important;       /* 解決半透明導致的看不見 */
+    display: inline-block;       /* 確保樣式被正確渲染 */
+  }
+
+  /* 3. 特別標註期刊名（斜體字體） */
+  [data-theme="dark"] .archive__item-excerpt em {
+    color: #ffffff !important;
     font-style: italic !important;
     font-weight: bold;
   }
 
-  /* 修正括號內的文字顏色（通常是作者名） */
-  [data-theme="dark"] .archive__item-excerpt p,
-  [data-theme="dark"] .archive__item-excerpt span {
-    color: #ffffff !important;
-    opacity: 1 !important;
+  /* 4. 恢復標題的藍色，避免全頁變白失去重點 */
+  [data-theme="dark"] .archive__item-title a {
+    color: #4493f8 !important;
   }
 </style>
