@@ -32,29 +32,29 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 1. 強制重設深色模式下的文字顏色變數 */
-  [data-theme="dark"] {
-    --text-color: #ffffff !important;         /* 強制全局文字變白 */
-    --archive-excerpt-color: #ffffff !important; /* 針對 Minimal Mistakes 的摘要顏色 */
-  }
-
-  /* 2. 核心修正：鎖定括號內作者名字的容器 */
+  /* 鎖定深色模式下的論文列表區塊 */
   [data-theme="dark"] .archive__item-excerpt {
-    color: #ffffff !important;
-    opacity: 1 !important;                     /* 徹底取消透明度 */
-    -webkit-text-fill-color: #ffffff !important; 
+    color: #f8f9fa !important;  /* 強制設為接近純白的淺灰色 */
+    opacity: 1 !important;      /* 核心：徹底取消導致變黑的透明度 */
+    filter: brightness(5) !important; /* 暴力手段：如果顏色改不動，就直接把亮度拉高 5 倍 */
   }
 
-  /* 3. 恢復論文標題的亮藍色，避免全白失去層次感 */
+  /* 針對括號內的作者名（這行字通常沒有標籤包裹，所以要鎖定 excerpt 容器本身） */
+  [data-theme="dark"] .archive__item-excerpt,
+  [data-theme="dark"] .archive__item-excerpt p {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
+
+  /* 保持標題為亮藍色，增加區分度 */
   [data-theme="dark"] .archive__item-title a {
     color: #4493f8 !important;
-    text-decoration: underline;
+    font-weight: bold;
   }
 
-  /* 4. 針對期刊名 (斜體) 保持白色 */
+  /* 針對期刊名（斜體），維持純白 */
   [data-theme="dark"] .archive__item-excerpt em {
     color: #ffffff !important;
     font-style: italic !important;
-    font-weight: bold;
   }
 </style>
