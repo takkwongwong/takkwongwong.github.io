@@ -33,31 +33,33 @@ author_profile: true
 
 
 <style>
-  /* 1. 鎖定作者名（即係你啱啱加咗 span 嗰行） */
-  [data-theme="dark"] .archive__item-excerpt span,
-  [data-theme="dark"] .archive__item-excerpt p span {
-    background: transparent !important; /* 核心：整走嗰嚿灰色遮擋物 */
-    color: #ffffff !important;      /* 確保係純白 */
-    opacity: 1 !important;           /* 確保唔會變透明 */
-    display: inline !important;
+  /* 1. 救返個標題藍色 */
+  [data-theme="dark"] .archive__item-title a {
+    color: #4493f8 !important;
+    text-decoration: underline !important;
   }
 
-  /* 2. 處理括號（括號通常喺 span 出面，所以會變黑） */
+  /* 2. 醫返好嗰行黑字：直接鎖定 .archive__item-excerpt 呢個容器 */
   [data-theme="dark"] .archive__item-excerpt {
+    color: #e0e0e0 !important; /* 變回淺灰色/白色 */
+    opacity: 1 !important;      /* 核心：熄咗主題嗰個半透明效果 */
+  }
+
+  /* 3. 確保你喺 Markdown 加咗嘅 span 唔會變黑 */
+  [data-theme="dark"] .archive__item-excerpt span {
     color: #ffffff !important;
+    background-color: transparent !important;
     opacity: 1 !important;
   }
 
-  /* 3. 確保期刊名、年份等資訊都係亮白 */
-  [data-theme="dark"] .archive__item-excerpt i,
+  /* 4. 期刊名 (Venue) 同斜體字都要變白 */
   [data-theme="dark"] .archive__item-excerpt em,
-  [data-theme="dark"] .archive__item-excerpt b {
+  [data-theme="dark"] .archive__item-excerpt i {
     color: #ffffff !important;
-    background: transparent !important;
     opacity: 1 !important;
+    filter: none !important;
   }
 
-  /* 4. 保住藍色標題同按鈕顏色 */
-  [data-theme="dark"] .archive__item-title a { color: #4493f8 !important; }
-  [data-theme="dark"] .btn { filter: none !important; color: #ffffff !important; }
+  /* 5. 救返個掣：唔好俾佢變橘色或者字變黑 */
+  [data-theme="dark"] .btn--primary { background-color: #2b7b8c !important; color: #fff !important; }
 </style>
