@@ -1,62 +1,12 @@
----
----
+/* 1. 徹底全站隱藏 Footer 區塊 */
+.page__footer, 
+.page__footer-follow, 
+.page__footer-copyright {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
-/*
- * This file controls what is imported from /_sass
- *
- * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
- */
-
-@import
-    "vendor/breakpoint/breakpoint",
-
-    "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
-
-    "include/mixins",
-    "vendor/susy/susy",
-
-    "layout/reset",
-    "layout/base",
-
-    "include/utilities",
-    "layout/tables",
-    "layout/buttons",
-    "layout/notices",
-    "layout/masthead",
-    "layout/navigation",
-    "layout/footer",
-    "syntax",
-
-    "layout/forms",
-
-    "layout/page",
-    "layout/archive",
-    "layout/sidebar",
-    "layout/json_cv",
-
-    "vendor/font-awesome/fontawesome",
-    "vendor/font-awesome/solid",
-    "vendor/font-awesome/brands"
-;
-
-<style>
-  /* 1. 徹底隱藏成個 Footer 區塊，包含 Sitemap, FEED 同所有 Powered by 字眼 */
-  .page__footer, 
-  .page__footer-follow, 
-  .page__footer-copyright {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* 2. 順便醫埋你內文啲 </i> 亂碼 (雖然係治標不治本，但可以變走佢先) */
-  /* 呢段會搵出所有露出嚟嘅 </i> 文字並隱藏佢 */
-  body {
-    content: normal !important;
-  }
-</style>
+/* 2. 移除所有唔應該喺 SCSS 出現嘅 HTML 標籤（如之前的 </style>） */
