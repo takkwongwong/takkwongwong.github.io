@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: home
 author_profile: true
 title: "About Me"
 permalink: /
@@ -23,3 +23,12 @@ I am an **Associate Professor** in the [School of Mathematical Sciences](https:/
 </div>
 
 My research interests include Differential Equations and Mathematical Biology.
+
+<style>
+  .archive__item, .list__item, .pagination, .page__content + .archive {
+    display: none !important;
+  }
+  h3.archive__subtitle {
+    display: none !important;
+  }
+</style>
