@@ -1,10 +1,8 @@
 ---
-layout: home
+layout: single
 author_profile: true
 title: "About Me"
 permalink: /
-# 加入以下這行來防止自動抓取文章
-entries_layout: null
 ---
 
 I am an **Associate Professor** in the [School of Mathematical Sciences](https://math.szu.edu.cn) at **Shenzhen University (SZU)**.
@@ -25,5 +23,3 @@ I am an **Associate Professor** in the [School of Mathematical Sciences](https:/
 </div>
 
 My research interests include Differential Equations and Mathematical Biology.
-
-<style>#main > div.archive { display: none; }</style>
