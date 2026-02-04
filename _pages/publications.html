@@ -32,18 +32,24 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 強制深色模式下的文字顏色 */
+  /* 鎖定深色模式下的論文列表 */
   [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .archive__item-excerpt i,
-  [data-theme="dark"] .archive__item-excerpt b,
-  [data-theme="dark"] .archive__item-excerpt p {
-    color: #ffffff !important; /* 強制變純白 */
-    opacity: 1 !important;     /* 確保不透明 */
-    -webkit-text-fill-color: #ffffff !important;
+  [data-theme="dark"] .archive__item-excerpt * {
+    /* 核心大絕：不管原本是什麼顏色，直接反轉成亮色 */
+    filter: invert(1) brightness(2) contrast(1.2) !important;
+    opacity: 1 !important;
+    color: #000 !important; /* 在 invert(1) 下，設定黑色會顯示為白色 */
   }
 
-  /* 保持論文標題為亮藍色 */
+  /* 保護標題不要被反向（否則藍色會變橘色） */
   [data-theme="dark"] .archive__item-title a {
+    filter: none !important;
     color: #4493f8 !important;
+    display: inline-block;
+  }
+
+  /* 保護按鈕不要變色 */
+  [data-theme="dark"] .btn {
+    filter: invert(1) brightness(0.5) !important;
   }
 </style>
