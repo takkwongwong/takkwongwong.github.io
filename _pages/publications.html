@@ -31,33 +31,35 @@ author_profile: true
   {% endfor %}
 {% endif %}
 
-<script>
-  function fixDarkColors() {
-    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-    if (isDarkMode) {
-      // 找到所有摘要區塊
-      const excerpts = document.querySelectorAll('.archive__item-excerpt');
-      excerpts.forEach(el => {
-        el.style.color = '#ffffff';      // 強制純白
-        el.style.opacity = '1';          // 強制完全不透明
-        // 針對內部的子元素（如作者名）
-        const children = el.querySelectorAll('*');
-        children.forEach(child => {
-          child.style.color = '#ffffff';
-          child.style.opacity = '1';
-        });
-      });
-    }
+<style>
+  /* 鎖定深色模式下的論文列表內容容器 */
+  [data-theme="dark"] .archive__item,
+  [data-theme="dark"] .archive__item-excerpt,
+  [data-theme="dark"] .list__item {
+    color: #ffffff !important;
+    opacity: 1 !important;
   }
 
-  // 網頁載入時執行
-  window.addEventListener('load', fixDarkColors);
-  // 監聽主題切換動作 (如果你的主題切換會觸發 attribute 改變)
-  const observer = new MutationObserver(fixDarkColors);
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-</script>
+  /* 強制將所有論文細節（作者、期刊、括號、年份）塗白 */
+  [data-theme="dark"] .archive__item-excerpt p,
+  [data-theme="dark"] .archive__item-excerpt span,
+  [data-theme="dark"] .archive__item-excerpt em,
+  [data-theme="dark"] .archive__item-excerpt strong {
+    color: #f8f9fa !important; /* 淺灰色/白色 */
+    opacity: 1 !important;     /* 徹底取消導致隱形的透明度 */
+    -webkit-text-fill-color: #f8f9fa !important;
+  }
 
-<style>
-  /* 保持標題為亮藍色，不被 JS 影響 */
-  [data-theme="dark"] .archive__item-title a { color: #4493f8 !important; }
+  /* 保持論文標題為亮藍色，確保層次感 */
+  [data-theme="dark"] .archive__item-title a {
+    color: #4493f8 !important;
+    font-weight: bold;
+    opacity: 1 !important;
+  }
+
+  /* 針對按鈕的文字顏色修正 */
+  [data-theme="dark"] .btn {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
 </style>
