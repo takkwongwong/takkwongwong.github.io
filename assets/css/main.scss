@@ -42,21 +42,21 @@
     "vendor/font-awesome/brands"
 ;
 
-/* 1. 徹底隱藏左下角所有 Sitemap 同 FEED */
-.page__footer-follow {
-  display: none !important;
-  visibility: hidden !important;
-}
+<style>
+  /* 1. 徹底隱藏成個 Footer 區塊，包含 Sitemap, FEED 同所有 Powered by 字眼 */
+  .page__footer, 
+  .page__footer-follow, 
+  .page__footer-copyright {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-/* 2. 徹底隱藏「Powered by...」嗰行字 */
-.page__footer-copyright {
-  font-size: 0 !important; /* 令原本啲字變到睇唔到 */
-}
-
-/* 3. 淨係顯示你想留低嘅版權名 */
-.page__footer-copyright::before {
-  content: "© 2026 Tak Kwong WONG"; /* 呢度可以改做你想顯示嘅字 */
-  font-size: 13px !important;
-  color: #999 !important;
-  visibility: visible !important;
-}
+  /* 2. 順便醫埋你內文啲 </i> 亂碼 (雖然係治標不治本，但可以變走佢先) */
+  /* 呢段會搵出所有露出嚟嘅 </i> 文字並隱藏佢 */
+  body {
+    content: normal !important;
+  }
+</style>
