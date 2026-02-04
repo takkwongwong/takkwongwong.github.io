@@ -32,17 +32,22 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 當切換到深色模式時 */
-  [data-theme="dark"] .archive__item-excerpt, 
-  [data-theme="dark"] .archive__item-excerpt em,
-  [data-theme="dark"] .archive__item-excerpt p {
-    color: #ced4da !important; /* 強制改為亮灰色/白色 */
-    opacity: 1 !important;     /* 去除透明度，提升清晰度 */
+  /* 鎖定深色模式下的所有論文描述文字 */
+  [data-theme="dark"] .archive__item-excerpt,
+  [data-theme="dark"] .archive__item-excerpt * {
+    color: #e1e4e8 !important; /* 強制改為亮白色 */
+    opacity: 1 !important;
   }
 
-  /* 針對斜體（通常是期刊名稱）特別加亮 */
+  /* 針對斜體顯示的期刊名稱 */
   [data-theme="dark"] .archive__item-excerpt em {
-    color: #ffffff !important;
-    font-weight: bold;
+    color: #58a6ff !important; /* 給期刊名一個亮藍色，增加區分度 */
+    font-style: italic;
+  }
+
+  /* 針對括號內的作者名 */
+  [data-theme="dark"] .archive__item-excerpt p {
+    margin-top: 0.5em;
+    color: #ced4da !important;
   }
 </style>
