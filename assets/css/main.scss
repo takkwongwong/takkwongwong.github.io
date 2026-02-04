@@ -1,10 +1,11 @@
-/* 徹底隱藏全站 Footer */
-.page__footer, 
+---
+# Only main.scss needs this front matter
+---
+
+@import "minimal-mistakes";
+
+/* 只隱藏最底部的 Sitemap 同 Feed，不影響其他嘢 */
 .page__footer-follow, 
 .page__footer-copyright {
   display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
