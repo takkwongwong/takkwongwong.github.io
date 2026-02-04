@@ -4,7 +4,7 @@
 
 @import "minimal-mistakes";
 
-/* 只隱藏最底部的 Sitemap 同 Feed，不影響其他嘢 */
+/* 隱藏 Footer */
 .page__footer-follow, 
 .page__footer-copyright {
   display: none !important;
