@@ -32,29 +32,29 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 1. 強制修正深色模式下的文字顏色與透明度 */
-  [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .archive__item-excerpt * {
-    color: rgba(255, 255, 255, 0.9) !important; /* 接近純白 */
-    opacity: 1 !important;                       /* 徹底取消透明效果 */
-    -webkit-text-fill-color: #ffffff !important; /* 針對某些瀏覽器的強制填色 */
+  /* 鎖定深色模式 */
+  body[data-theme="dark"], 
+  [data-theme="dark"] .archive__item,
+  [data-theme="dark"] .archive__item-excerpt {
+    --text-color: #ffffff !important;
   }
 
-  /* 2. 針對括號內的合作作者文字（通常在 <p> 或 <span> 中） */
-  [data-theme="dark"] .archive__item-excerpt p,
-  [data-theme="dark"] .archive__item-excerpt span {
+  /* 強制將所有在 excerpt 區塊內的文字（作者、括號等）設為白色 */
+  [data-theme="dark"] .archive__item-excerpt {
     color: #ffffff !important;
+    opacity: 1 !important;
+    display: block !important;
   }
 
-  /* 3. 期刊名稱（斜體）維持亮藍色，增加學術感 */
+  /* 針對你截圖中變暗的括號與作者文字 */
+  [data-theme="dark"] .archive__item-excerpt * {
+    color: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  /* 為了美觀，維持期刊名為亮藍色 */
   [data-theme="dark"] .archive__item-excerpt em {
-    color: #58a6ff !important;
-    font-style: italic !important;
-    font-weight: 500;
-  }
-
-  /* 4. 確保連結（如 PDF 或 DOI）也清晰 */
-  [data-theme="dark"] .archive__item-excerpt a {
     color: #4493f8 !important;
+    font-style: italic !important;
   }
 </style>
