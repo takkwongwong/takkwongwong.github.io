@@ -32,30 +32,31 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 1. 保持標題為亮藍色，增加可讀性 */
+  /* 鎖定深色模式下的所有文字顏色與透明度 */
+  [data-theme="dark"] .archive__item,
+  [data-theme="dark"] .archive__item-excerpt,
+  [data-theme="dark"] .archive__item-excerpt p,
+  [data-theme="dark"] .archive__item-excerpt span {
+    /* 直接覆蓋主題可能使用的變數 */
+    --text-color: #ffffff !important;
+    color: #ffffff !important;         /* 強制變白 */
+    opacity: 1 !important;             /* 徹底取消透明度 */
+    filter: brightness(200%) !important; /* 強制增加亮度 */
+  }
+
+  /* 專門修復括號內的作者名（with...） */
+  [data-theme="dark"] .archive__item-excerpt {
+    color: #f0f0f0 !important;
+    -webkit-text-fill-color: #f0f0f0 !important;
+  }
+
+  /* 保持標題為亮藍色，期刊名為白色 */
   [data-theme="dark"] .archive__item-title a {
     color: #4493f8 !important;
   }
-
-  /* 2. 針對「合作作者」這行黑色的文字進行強制爆破 */
-  /* 我們直接鎖定所有在 excerpt 區塊內的文字節點 */
-  [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .archive__item-excerpt * {
-    color: rgba(255, 255, 255, 0.85) !important; /* 強制變為淺灰色/白色 */
-    opacity: 1 !important;                       /* 這是關鍵：取消導致變黑的透明度 */
-    visibility: visible !important;
-  }
-
-  /* 3. 期刊名稱與年份（通常是 em 或強化的文字） */
-  [data-theme="dark"] .archive__item-excerpt em,
-  [data-theme="dark"] .archive__item-excerpt strong {
+  
+  [data-theme="dark"] .archive__item-excerpt em {
     color: #ffffff !important;
-    font-style: italic;
-  }
-
-  /* 4. 針對括號內容的特殊修正 */
-  [data-theme="dark"] .archive__item-excerpt p {
-    color: #ced4da !important;
-    margin: 0;
+    font-style: italic !important;
   }
 </style>
