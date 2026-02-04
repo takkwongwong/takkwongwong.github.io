@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">Following are some published papers, as well as preprints. (The papers on arXiv are NOT their final versions.)</div>
+  <div class="wordwrap">You can also find my articles on <a href="https://scholar.google.com/citations?hl=en&user={{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 {% include base_path %}
@@ -32,29 +32,25 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 鎖定深色模式 */
-  body[data-theme="dark"], 
-  [data-theme="dark"] .archive__item,
-  [data-theme="dark"] .archive__item-excerpt {
-    --text-color: #ffffff !important;
+  /* 鎖定深色模式下的論文描述區塊 */
+  [data-theme="dark"] .page__content .archive__item-excerpt,
+  [data-theme="dark"] .page__content .archive__item-excerpt * {
+    color: #ffffff !important;         /* 強制文字變純白 */
+    opacity: 1 !important;             /* 強制取消透明度 (這是關鍵) */
+    -webkit-text-fill-color: #ffffff !important; 
   }
 
-  /* 強制將所有在 excerpt 區塊內的文字（作者、括號等）設為白色 */
-  [data-theme="dark"] .archive__item-excerpt {
-    color: #ffffff !important;
-    opacity: 1 !important;
-    display: block !important;
-  }
-
-  /* 針對你截圖中變暗的括號與作者文字 */
-  [data-theme="dark"] .archive__item-excerpt * {
-    color: #ffffff !important;
-    opacity: 1 !important;
-  }
-
-  /* 為了美觀，維持期刊名為亮藍色 */
-  [data-theme="dark"] .archive__item-excerpt em {
-    color: #4493f8 !important;
+  /* 針對期刊名稱（斜體），維持亮藍色或維持亮白色 */
+  [data-theme="dark"] .page__content .archive__item-excerpt em {
+    color: #ffffff !important;         /* 也可以改回 #58a6ff 如果你喜歡藍色 */
     font-style: italic !important;
+    font-weight: bold;
+  }
+
+  /* 修正括號內的文字顏色（通常是作者名） */
+  [data-theme="dark"] .archive__item-excerpt p,
+  [data-theme="dark"] .archive__item-excerpt span {
+    color: #ffffff !important;
+    opacity: 1 !important;
   }
 </style>
