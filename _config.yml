@@ -39,42 +39,42 @@ collections:
   publications:
     output: true
     permalink: /publications/:title/
-  teaching:
-    output: true
-    permalink: /teaching/:title/
+#  teaching:
+#    output: true
+#    permalink: /teaching/:title/
 
 # 5. 檔案讀取設定
 include:
   - _pages
   - _publications
-  - _teaching
-  - assets
+#  - _teaching
+#  - assets
 
 # 6. 預設頁面佈局設定 - 已修正 pages 部分，確保 index.md 套用樣式
 defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: "single"
-      author_profile: true
+#  - scope:
+#      path: ""
+#      type: posts
+#    values:
+#      layout: "single"
+#      author_profile: true
   - scope:
       path: ""
       type: publications
     values:
       layout: "single"
       author_profile: true
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: "single"
-      author_profile: true
-  - scope:
-      path: ""
-    values:
-      layout: "single"
-      author_profile: true
+#  - scope:
+#      path: ""
+#      type: teaching
+#    values:
+#      layout: "single"
+#      author_profile: true
+#  - scope:
+#     path: ""
+#     values:
+#     layout: "single"
+#     author_profile: true
 
 # 7. 數學公式與 Markdown 高階設定
 markdown: kramdown
