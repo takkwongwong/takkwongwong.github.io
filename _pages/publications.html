@@ -6,12 +6,11 @@ author_profile: true
 ---
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
+  <div class="wordwrap">You can also find my articles on <a href="https://scholar.google.com/citations?hl=en&user={{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
 {% if site.publication_category %}
   {% for category in site.publication_category  %}
     {% assign title_shown = false %}
@@ -32,5 +31,18 @@ author_profile: true
   {% endfor %}
 {% endif %}
 
+<style>
+  /* 當切換到深色模式時 */
+  [data-theme="dark"] .archive__item-excerpt, 
+  [data-theme="dark"] .archive__item-excerpt em,
+  [data-theme="dark"] .archive__item-excerpt p {
+    color: #ced4da !important; /* 強制改為亮灰色/白色 */
+    opacity: 1 !important;     /* 去除透明度，提升清晰度 */
+  }
 
-
+  /* 針對斜體（通常是期刊名稱）特別加亮 */
+  [data-theme="dark"] .archive__item-excerpt em {
+    color: #ffffff !important;
+    font-weight: bold;
+  }
+</style>
