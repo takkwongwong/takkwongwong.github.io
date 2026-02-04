@@ -1,4 +1,4 @@
-/* 1. 徹底全站隱藏 Footer 區塊 */
+/* 徹底全站隱藏 Footer 區塊 */
 .page__footer, 
 .page__footer-follow, 
 .page__footer-copyright {
@@ -8,5 +8,3 @@
   margin: 0 !important;
   padding: 0 !important;
 }
-
-/* 2. 移除所有唔應該喺 SCSS 出現嘅 HTML 標籤（如之前的 </style>） */
