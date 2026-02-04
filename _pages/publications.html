@@ -33,35 +33,31 @@ author_profile: true
 
 
 <style>
-  /* 1. 核心：熄咗所有 AcademicPages 喺 Dark Mode 嘅濾鏡，等啲字顯現返 */
-  [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .archive__item-excerpt * {
-    filter: none !important;      /* 呢句最重要：熄咗搞到啲字變黑嘅濾鏡 */
-    color: #ffffff !important;    /* 強制所有作者同內容變純白 */
-    opacity: 1 !important;        /* 唔准佢半透明 */
-    -webkit-text-fill-color: #ffffff !important;
+  /* 1. 鎖定作者名（即係你啱啱加咗 span 嗰行） */
+  [data-theme="dark"] .archive__item-excerpt span,
+  [data-theme="dark"] .archive__item-excerpt p span {
+    background: transparent !important; /* 核心：整走嗰嚿灰色遮擋物 */
+    color: #ffffff !important;      /* 確保係純白 */
+    opacity: 1 !important;           /* 確保唔會變透明 */
+    display: inline !important;
   }
 
-  /* 2. 救返啲掣！確保個掣係原本顏色，啲字係白色 */
-  [data-theme="dark"] .btn, 
-  [data-theme="dark"] .btn--primary,
-  [data-theme="dark"] .btn--success,
-  [data-theme="dark"] .btn--warning {
-    filter: none !important;      /* 防止個掣變深藍色 */
+  /* 2. 處理括號（括號通常喺 span 出面，所以會變黑） */
+  [data-theme="dark"] .archive__item-excerpt {
     color: #ffffff !important;
     opacity: 1 !important;
-    text-decoration: none !important;
   }
 
-  /* 3. 保住個標題亮藍色，唔好俾上面嘅全白影響到 */
-  [data-theme="dark"] .archive__item-title a {
-    color: #4493f8 !important;
-    filter: none !important;
-  }
-
-  /* 4. 期刊名 (Venue) 都要亮白 */
-  [data-theme="dark"] .archive__item-excerpt em {
+  /* 3. 確保期刊名、年份等資訊都係亮白 */
+  [data-theme="dark"] .archive__item-excerpt i,
+  [data-theme="dark"] .archive__item-excerpt em,
+  [data-theme="dark"] .archive__item-excerpt b {
     color: #ffffff !important;
-    font-style: italic !important;
+    background: transparent !important;
+    opacity: 1 !important;
   }
+
+  /* 4. 保住藍色標題同按鈕顏色 */
+  [data-theme="dark"] .archive__item-title a { color: #4493f8 !important; }
+  [data-theme="dark"] .btn { filter: none !important; color: #ffffff !important; }
 </style>
