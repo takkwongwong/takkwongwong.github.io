@@ -32,34 +32,4 @@ author_profile: true
 {% endif %}
 
 
-<style>
-  /* 1. 救返個標題藍色 */
-  [data-theme="dark"] .archive__item-title a {
-    color: #4493f8 !important;
-    text-decoration: underline !important;
-  }
 
-  /* 2. 醫返好嗰行黑字：直接鎖定 .archive__item-excerpt 呢個容器 */
-  [data-theme="dark"] .archive__item-excerpt {
-    color: #e0e0e0 !important; /* 變回淺灰色/白色 */
-    opacity: 1 !important;      /* 核心：熄咗主題嗰個半透明效果 */
-  }
-
-  /* 3. 確保你喺 Markdown 加咗嘅 span 唔會變黑 */
-  [data-theme="dark"] .archive__item-excerpt span {
-    color: #ffffff !important;
-    background-color: transparent !important;
-    opacity: 1 !important;
-  }
-
-  /* 4. 期刊名 (Venue) 同斜體字都要變白 */
-  [data-theme="dark"] .archive__item-excerpt em,
-  [data-theme="dark"] .archive__item-excerpt i {
-    color: #ffffff !important;
-    opacity: 1 !important;
-    filter: none !important;
-  }
-
-  /* 5. 救返個掣：唔好俾佢變橘色或者字變黑 */
-  [data-theme="dark"] .btn--primary { background-color: #2b7b8c !important; color: #fff !important; }
-</style>
