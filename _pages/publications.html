@@ -31,31 +31,33 @@ author_profile: true
   {% endfor %}
 {% endif %}
 
+<script>
+  function fixDarkColors() {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDarkMode) {
+      // 找到所有摘要區塊
+      const excerpts = document.querySelectorAll('.archive__item-excerpt');
+      excerpts.forEach(el => {
+        el.style.color = '#ffffff';      // 強制純白
+        el.style.opacity = '1';          // 強制完全不透明
+        // 針對內部的子元素（如作者名）
+        const children = el.querySelectorAll('*');
+        children.forEach(child => {
+          child.style.color = '#ffffff';
+          child.style.opacity = '1';
+        });
+      });
+    }
+  }
+
+  // 網頁載入時執行
+  window.addEventListener('load', fixDarkColors);
+  // 監聽主題切換動作 (如果你的主題切換會觸發 attribute 改變)
+  const observer = new MutationObserver(fixDarkColors);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+</script>
+
 <style>
-  /* 1. 鎖定深色模式下的論文描述區塊 */
-  [data-theme="dark"] .archive__item-excerpt {
-    /* 物理反轉：將深色背景上的暗灰色反轉為亮色 */
-    filter: invert(1) hue-rotate(180deg) brightness(1.5) !important;
-    color: #000000 !important; /* 在反轉濾鏡下，設定黑色會變成白色 */
-    opacity: 1 !important;     /* 強制取消透明度 */
-  }
-
-  /* 2. 修正反轉後可能導致的期刊名顏色偏差 */
-  [data-theme="dark"] .archive__item-excerpt em {
-    filter: none !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-  }
-
-  /* 3. 確保標題維持原本好看的亮藍色，不被濾鏡影響 */
-  [data-theme="dark"] .archive__item-title a {
-    color: #4493f8 !important;
-    filter: none !important;
-    display: inline-block;
-  }
-
-  /* 4. 修正按鈕顏色，避免被反轉濾鏡弄亂 */
-  [data-theme="dark"] .archive__item-excerpt .btn {
-    filter: invert(1) hue-rotate(180deg) !important;
-  }
+  /* 保持標題為亮藍色，不被 JS 影響 */
+  [data-theme="dark"] .archive__item-title a { color: #4493f8 !important; }
 </style>
