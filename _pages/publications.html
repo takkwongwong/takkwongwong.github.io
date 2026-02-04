@@ -32,23 +32,29 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 鎖定深色模式下的論文列表內容 */
+  /* 1. 強制修正深色模式下的文字顏色與透明度 */
   [data-theme="dark"] .archive__item-excerpt,
   [data-theme="dark"] .archive__item-excerpt * {
-    color: #ffffff !important; /* 強制所有文字變為純白 */
-    opacity: 1 !important;     /* 確保完全不透明 */
+    color: rgba(255, 255, 255, 0.9) !important; /* 接近純白 */
+    opacity: 1 !important;                       /* 徹底取消透明效果 */
+    -webkit-text-fill-color: #ffffff !important; /* 針對某些瀏覽器的強制填色 */
   }
 
-  /* 針對斜體顯示的期刊名稱，維持亮藍色以作區分 */
-  [data-theme="dark"] .archive__item-excerpt em {
-    color: #58a6ff !important; 
-    font-style: italic !important;
-    font-weight: bold;
-  }
-
-  /* 針對引用格式 (citation) 可能產生的特定顏色進行覆蓋 */
-  [data-theme="dark"] .archive__item-excerpt .citation,
-  [data-theme="dark"] .archive__item-excerpt .citation * {
+  /* 2. 針對括號內的合作作者文字（通常在 <p> 或 <span> 中） */
+  [data-theme="dark"] .archive__item-excerpt p,
+  [data-theme="dark"] .archive__item-excerpt span {
     color: #ffffff !important;
+  }
+
+  /* 3. 期刊名稱（斜體）維持亮藍色，增加學術感 */
+  [data-theme="dark"] .archive__item-excerpt em {
+    color: #58a6ff !important;
+    font-style: italic !important;
+    font-weight: 500;
+  }
+
+  /* 4. 確保連結（如 PDF 或 DOI）也清晰 */
+  [data-theme="dark"] .archive__item-excerpt a {
+    color: #4493f8 !important;
   }
 </style>
