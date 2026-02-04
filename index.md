@@ -17,7 +17,7 @@ I am an **Associate Professor** in the [School of Mathematical Sciences](https:/
   <a href="https://orcid.org/0000-0002-6454-984X" target="_blank" style="text-decoration: none; color: #444; font-size: 0.85em; border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px; display: flex; align-items: center; background: #ffffff;">
     <i class="fab fa-orcid" style="color: #A6CE39; margin-right: 8px;"></i> ORCID
   </a>
-  <a href="https://mathscinet.ams.org/author?authorId=972012" target="_blank" style="text-decoration: none; color: #444; font-size: 0.85em; border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px; display: flex; align-items: center; background: #ffffff;">
+  <a href="https://mathscinet.ams.org/mathscinet/search/author.html?mranid=972012" target="_blank" style="text-decoration: none; color: #444; font-size: 0.85em; border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px; display: flex; align-items: center; background: #ffffff;">
     <i class="fas fa-book-open" style="color: #9B59B6; margin-right: 8px;"></i> MathSciNet
   </a>
 </div>
