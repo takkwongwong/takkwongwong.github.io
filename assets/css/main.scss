@@ -2,4 +2,5 @@
 # Only main.scss needs this front matter
 ---
 
-@import "minimal-mistakes";
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
