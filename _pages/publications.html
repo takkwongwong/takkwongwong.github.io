@@ -32,34 +32,32 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 鎖定深色模式下的論文列表內容容器 */
+  /* 1. 鎖定 AcademicPages 專用的列表項容器 */
+  [data-theme="dark"] .list__item,
   [data-theme="dark"] .archive__item,
-  [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .list__item {
+  [data-theme="dark"] .archive__item-excerpt {
     color: #ffffff !important;
-    opacity: 1 !important;
+    opacity: 1 !important; /* 解決 AcademicPages 常見的半透明問題 */
   }
 
-  /* 強制將所有論文細節（作者、期刊、括號、年份）塗白 */
+  /* 2. 強制拉亮作者群（with...）與期刊名 */
   [data-theme="dark"] .archive__item-excerpt p,
   [data-theme="dark"] .archive__item-excerpt span,
-  [data-theme="dark"] .archive__item-excerpt em,
-  [data-theme="dark"] .archive__item-excerpt strong {
-    color: #f8f9fa !important; /* 淺灰色/白色 */
-    opacity: 1 !important;     /* 徹底取消導致隱形的透明度 */
-    -webkit-text-fill-color: #f8f9fa !important;
+  [data-theme="dark"] .archive__item-excerpt em {
+    color: #f0f0f0 !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: #f0f0f0 !important;
+    display: inline-block; /* 確保樣式被瀏覽器強制執行 */
   }
 
-  /* 保持論文標題為亮藍色，確保層次感 */
+  /* 3. 恢復標題的亮藍色，避免全頁刺眼 */
   [data-theme="dark"] .archive__item-title a {
     color: #4493f8 !important;
-    font-weight: bold;
-    opacity: 1 !important;
+    text-decoration: underline !important;
   }
 
-  /* 針對按鈕的文字顏色修正 */
-  [data-theme="dark"] .btn {
-    color: #ffffff !important;
-    opacity: 1 !important;
+  /* 4. 針對 AcademicPages 可能使用的特定變數進行全局改色 */
+  :root[data-theme="dark"] {
+    --text-muted: #ced4da !important; /* 將原本變暗的文字變數改亮 */
   }
 </style>
