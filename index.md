@@ -9,7 +9,7 @@ I am an **Associate Professor** in the [School of Mathematical Sciences](https:/
 
 <div style="margin-top: 1.5em; margin-bottom: 2em; display: flex; flex-wrap: wrap; gap: 10px;">
   <a href="mailto:takkwong@szu.edu.cn" style="text-decoration: none; color: #444; font-size: 0.85em; border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px; display: flex; align-items: center; background: #ffffff;">
-    <i class="fas fa-envelope" style="color: #E74C3C; margin-right: 8px;"></i> takkwong [at] szu.edu.cn
+    <i class="fas fa-envelope" style="color: #E74C3C; margin-right: 8px;"></i> Email
   </a>
   <a href="https://scholar.google.com/citations?hl=en&user=0EiOaHYAAAAJ" target="_blank" style="text-decoration: none; color: #444; font-size: 0.85em; border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px; display: flex; align-items: center; background: #ffffff;">
     <i class="fas fa-graduation-cap" style="color: #4285F4; margin-right: 8px;"></i> Google Scholar
