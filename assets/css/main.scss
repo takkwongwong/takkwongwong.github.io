@@ -1,10 +1,6 @@
 ---
-# Only main.scss needs this front matter
+# Original file restoration
 ---
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
-
-/* 1. Force refresh build to fix ugly style */
-/* 2. Returning to original AcademicPages layout */
-/* 3. Original version timestamp: 2026-02-04 */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
