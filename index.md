@@ -22,21 +22,19 @@ I am an **Associate Professor** in the [School of Mathematical Sciences](https:/
   </a>
 </div>
 
- Nonlinear Partial Differential Equations, Analysis, Applied Mathematics, Control Theory, and Optimization.
+ My research interests include **Nonlinear Partial Differential Equations, Analysis, Applied Mathematics, Control Theory, and Optimization**.
+
 In particular, I am strongly interested in the following topics:
-  Fluid Dynamics
-  Integrable Systems
-  Kinetic Theory
-  Mathematical Biology
-  Mathematical Economics/Finance
-  Mean-field Type Control Problems, and
-  Mean-field Games
+* **Fluid Dynamics**
+* **Integrable Systems**
+* **Kinetic Theory**
+* **Mathematical Biology**
+* **Mathematical Economics/Finance**
+* **Mean-field Type Control Problems**, and
+* **Mean-field Games**
 
 <style>
-  .archive__item, .list__item, .pagination, .page__content + .archive {
-    display: none !important;
-  }
-  h3.archive__subtitle {
+  .archive__item, .list__item, .pagination, .page__content + .archive, h3.archive__subtitle {
     display: none !important;
   }
 </style>
