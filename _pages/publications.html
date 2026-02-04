@@ -32,28 +32,30 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 1. 當切換到深色模式時 */
-  [data-theme="dark"] .archive__item {
-    color: #ffffff !important;
-  }
-
-  /* 2. 強制讓論文描述區（包含作者、期刊、括號）變白 */
-  [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .archive__item-excerpt * {
-    color: #f0f0f0 !important;   /* 淺白色 */
-    opacity: 1 !important;       /* 解決半透明導致的看不見 */
-    display: inline-block;       /* 確保樣式被正確渲染 */
-  }
-
-  /* 3. 特別標註期刊名（斜體字體） */
-  [data-theme="dark"] .archive__item-excerpt em {
-    color: #ffffff !important;
-    font-style: italic !important;
-    font-weight: bold;
-  }
-
-  /* 4. 恢復標題的藍色，避免全頁變白失去重點 */
+  /* 1. 保持標題為亮藍色，增加可讀性 */
   [data-theme="dark"] .archive__item-title a {
     color: #4493f8 !important;
+  }
+
+  /* 2. 針對「合作作者」這行黑色的文字進行強制爆破 */
+  /* 我們直接鎖定所有在 excerpt 區塊內的文字節點 */
+  [data-theme="dark"] .archive__item-excerpt,
+  [data-theme="dark"] .archive__item-excerpt * {
+    color: rgba(255, 255, 255, 0.85) !important; /* 強制變為淺灰色/白色 */
+    opacity: 1 !important;                       /* 這是關鍵：取消導致變黑的透明度 */
+    visibility: visible !important;
+  }
+
+  /* 3. 期刊名稱與年份（通常是 em 或強化的文字） */
+  [data-theme="dark"] .archive__item-excerpt em,
+  [data-theme="dark"] .archive__item-excerpt strong {
+    color: #ffffff !important;
+    font-style: italic;
+  }
+
+  /* 4. 針對括號內容的特殊修正 */
+  [data-theme="dark"] .archive__item-excerpt p {
+    color: #ced4da !important;
+    margin: 0;
   }
 </style>
