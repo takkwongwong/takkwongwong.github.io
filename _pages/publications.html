@@ -32,39 +32,18 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 1. 鎖定 AcademicPages 的論文內容容器 */
-  /* 強制取消透明度，這是讓文字顯現的關鍵 */
+  /* 強制深色模式下的文字顏色 */
   [data-theme="dark"] .archive__item-excerpt,
-  [data-theme="dark"] .list__item .archive__item-excerpt {
-    opacity: 1 !important;
-    color: #ffffff !important;
-  }
-
-  /* 2. 針對「作者名」與「括號」：強制塗白並提升亮度 */
-  [data-theme="dark"] .archive__item-excerpt p,
-  [data-theme="dark"] .archive__item-excerpt {
-    color: #e0e0e0 !important; 
-    -webkit-text-fill-color: #e0e0e0 !important;
-  }
-
-  /* 3. 針對「期刊名稱」：確保它是亮白色斜體 */
-  [data-theme="dark"] .archive__item-excerpt em,
-  [data-theme="dark"] .archive__item-excerpt i {
-    color: #ffffff !important;
+  [data-theme="dark"] .archive__item-excerpt i,
+  [data-theme="dark"] .archive__item-excerpt b,
+  [data-theme="dark"] .archive__item-excerpt p {
+    color: #ffffff !important; /* 強制變純白 */
+    opacity: 1 !important;     /* 確保不透明 */
     -webkit-text-fill-color: #ffffff !important;
-    font-style: italic !important;
-    opacity: 1 !important;
   }
 
-  /* 4. 保持標題為亮藍色並加上底線（如截圖所示） */
+  /* 保持論文標題為亮藍色 */
   [data-theme="dark"] .archive__item-title a {
     color: #4493f8 !important;
-    text-decoration: underline !important;
-    opacity: 1 !important;
   }
-
-  /* 5. 修正按鈕：恢復原本專業的顏色 */
-  [data-theme="dark"] .btn--primary { background-color: #2b7b8c !important; color: #fff !important; }
-  [data-theme="dark"] .btn--warning { background-color: #f39c12 !important; color: #fff !important; }
-  [data-theme="dark"] .btn--success { background-color: #27ae60 !important; color: #fff !important; }
 </style>
