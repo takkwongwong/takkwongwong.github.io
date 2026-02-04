@@ -32,32 +32,36 @@ author_profile: true
 {% endif %}
 
 <style>
-  /* 1. 恢復標題與按鈕的正常視覺，不要太刺眼 */
+  /* 1. 保持標題為清楚的亮藍色 */
   [data-theme="dark"] .archive__item-title a {
     color: #4493f8 !important;
   }
 
-  /* 2. 核心修正：解決括號作者名看不見的問題 */
-  /* 我們直接鎖定 archive-single 輸出的所有內容，強制不透明 */
+  /* 2. 核心修正：強制讓括號內的作者名（excerpt）顯現 */
   [data-theme="dark"] .archive__item-excerpt,
   [data-theme="dark"] .archive__item-excerpt p,
-  [data-theme="dark"] .archive__item-excerpt span,
-  [data-theme="dark"] .archive__item-excerpt font {
-    color: #ced4da !important;  /* 淺灰色，確保在黑底下清晰 */
-    opacity: 1 !important;      /* 關鍵：強制取消主題的半透明設定 */
-    filter: none !important;    /* 取消任何可能的濾鏡 */
-    -webkit-text-fill-color: #ced4da !important;
+  [data-theme="dark"] .archive__item-excerpt span {
+    color: #ced4da !important;         /* 淺灰色，確保在黑底下清晰 */
+    opacity: 1 !important;             /* 強制取消可能導致隱形的透明度 */
+    -webkit-text-fill-color: #ced4da !important; 
   }
 
-  /* 3. 針對括號內的文字節點進行強化 */
-  [data-theme="dark"] .archive__item-excerpt {
-    display: block !important;
-    visibility: visible !important;
-  }
-
-  /* 4. 期刊名 (斜體) 設為純白，增加層次 */
-  [data-theme="dark"] .archive__item-excerpt em {
-    color: #ffffff !important;
+  /* 3. 針對作者名字所在的特定文字區塊進行爆破 */
+  /* 有時主題會把這行字當成普通的 text node，我們用通配符鎖定 */
+  [data-theme="dark"] .archive__item-excerpt * {
+    color: #ced4da !important;
     opacity: 1 !important;
   }
+
+  /* 4. 期刊名 (斜體) 保持白色，與作者名做出區分 */
+  [data-theme="dark"] .archive__item-excerpt em {
+    color: #ffffff !important;
+    font-style: italic !important;
+    opacity: 1 !important;
+  }
+
+  /* 5. 恢復按鈕原本的顏色，不要太刺眼 */
+  .btn--primary { background-color: #2b7b8c !important; }
+  .btn--warning { background-color: #f39c12 !important; }
+  .btn--success { background-color: #27ae60 !important; }
 </style>
