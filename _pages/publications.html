@@ -32,4 +32,24 @@ author_profile: true
 {% endif %}
 
 
+<style>
+  /* 1. 直接隱藏成個 Follow 區塊（包含 Sitemap 同 FEED） */
+  .page__footer-follow {
+    display: none !important;
+  }
+
+  /* 2. 針對「Powered by」嗰行字，我哋淨係留返 Copyright，其他全部隱藏 */
+  .page__footer-copyright {
+    font-size: 0 !important; /* 將所有字變做 0 大細 */
+  }
+
+  /* 3. 淨係將年份同名變返做正常大細，咁樣「Powered by」就會消失咗 */
+  .page__footer-copyright::before {
+    content: "© 2026 Tak Kwong WONG"; /* 呢度填返你個名 */
+    font-size: 14px !important;
+    color: #999 !important;
+  }
+</style>
+
+
 
