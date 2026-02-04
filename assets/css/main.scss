@@ -41,3 +41,22 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
+/* 1. 徹底隱藏左下角所有 Sitemap 同 FEED */
+.page__footer-follow {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* 2. 徹底隱藏「Powered by...」嗰行字 */
+.page__footer-copyright {
+  font-size: 0 !important; /* 令原本啲字變到睇唔到 */
+}
+
+/* 3. 淨係顯示你想留低嘅版權名 */
+.page__footer-copyright::before {
+  content: "© 2026 Tak Kwong WONG"; /* 呢度可以改做你想顯示嘅字 */
+  font-size: 13px !important;
+  color: #999 !important;
+  visibility: visible !important;
+}
