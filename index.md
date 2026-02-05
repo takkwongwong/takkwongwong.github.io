@@ -5,7 +5,7 @@ title: "About Me"
 permalink: /
 ---
 
-I am an **Associate Professor** in the [School of Mathematical Sciences](https://math.szu.edu.cn) at **Shenzhen University (SZU)**.
+I am an **Associate Professor** in the [School of Mathematical Sciences](https://math.szu.edu.cn) at [Shenzhen University](https://en.szu.edu.cn/) (SZU).
 
 <div style="margin-top: 1.5em; margin-bottom: 2em; display: flex; flex-wrap: wrap; gap: 10px;">
   <a href="mailto:takkwong@szu.edu.cn" style="text-decoration: none; color: #444; font-size: 0.85em; border: 1px solid #ddd; padding: 6px 12px; border-radius: 4px; display: flex; align-items: center; background: #ffffff;">
