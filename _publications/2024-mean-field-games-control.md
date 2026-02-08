@@ -5,9 +5,11 @@ date: 2025-10-01
 citation: "with Alain Bensoussan, Ho Man Tai and Sheung Chi Phillip Yam"
 venue: "Applied Mathematics and Optimization"
 volume: "92"
-issue: "2"
+number: "Paper No. 44"
 year: "2025"
+pages: ""
 remarks: ""
+pub_url: "https://doi.org/10.1007/s00245-025-10324-9"
 pre_url: "https://arxiv.org/abs/2402.01639"
-url: "https://doi.org/10.1007/s00245-025-10324-9"
+
 ---
