@@ -26,7 +26,7 @@ Prior to joining SZU, I worked as an Assistant Professor in the Department of Ma
   </a>
 </div>
 
-Research Overview
+**Research Overview**
 
  My research interests include **Nonlinear Partial Differential Equations, Analysis (PDEs), Analysis, Applied Mathematics, Control Theory, and Optimization**.
 
